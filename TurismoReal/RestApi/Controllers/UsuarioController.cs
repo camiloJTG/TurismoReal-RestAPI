@@ -1,13 +1,12 @@
-﻿using RestApi.Models;
+﻿using RestApi.Models.TR;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using TR.Lógica;
 
 namespace RestApi.Controllers
 {
@@ -15,39 +14,31 @@ namespace RestApi.Controllers
     {
         private Entities db = new Entities();
 
-        //GET api/Usuario
-        public IQueryable<USUARIO> GetClientes()
+        //[HttpGet]
+        //public IEnumerable<USUARIO> GetUsuario()
+        //{
+        //    var list = db.USUARIO.ToList();
+        //    return list;
+        //}
+
+        [HttpGet]
+        public IHttpActionResult GetUsuarioById(string id)
         {
-            return db.USUARIO;
-        }
+            var data = db.USUARIO.FirstOrDefault(u=>u.USUARIO1 == id);
 
-        //POST api/Cliente
-        [ResponseType(typeof(USUARIO))]
-        public IHttpActionResult PostClientes(USUARIO usuario)
-        {
-            if (!ModelState.IsValid)
+            if (data != null)
             {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                db.USUARIO.Add(usuario);
-                db.SaveChanges();
-                return CreatedAtRoute("DefaultApi", new { id = usuario.USUARIO1 }, usuario);
-            }
-            catch (DbEntityValidationException ex)
-            {
-
-                foreach (var validation in ex.EntityValidationErrors)
+                Usuario usuario = new Usuario
                 {
-                    foreach (var va in validation.ValidationErrors)
-                    {
-                        Trace.TraceInformation("propiedad:  {0} DbValidationError: {1}", va.PropertyName,va.ErrorMessage);
-                    }
-                }
+                    CONTRASENA = data.CONTRASENA,
+                    ESTADO_ID = data.ESTADO_ID,
+                    TIPO_USUARIO_CODIGO = data.TIPO_USUARIO_CODIGO,
+                    USUARIO1 = data.USUARIO1
+                };
+
+                return Ok(usuario);
             }
-            return CreatedAtRoute("DefaultApi", new { id = usuario.USUARIO1 }, usuario);
+            return BadRequest();
         }
     }
 }
