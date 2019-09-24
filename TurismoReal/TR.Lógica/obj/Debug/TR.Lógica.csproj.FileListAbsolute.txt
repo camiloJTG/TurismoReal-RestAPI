@@ -3,3 +3,4 @@ C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.Lógica\bin\Debug\TR
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.Lógica\obj\Debug\TR.Lógica.csproj.CoreCompileInputs.cache
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.Lógica\obj\Debug\TR.Lógica.dll
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.Lógica\obj\Debug\TR.Lógica.pdb
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.Lógica\obj\Debug\TR.Lógica.csprojAssemblyReference.cache
