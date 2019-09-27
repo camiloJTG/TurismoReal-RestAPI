@@ -68,25 +68,29 @@ namespace RestApi.Controllers
             return BadRequest(ModelState);
         }
 
-        //POSIBLE LOGIN
-        //[HttpPost]
-        //public IHttpActionResult PostLogin(string id)
-        //{
-        //    var exitName = db.USUARIO.FirstOrDefault(u=>u.USUARIO1 == id);
+        [HttpPost]
+        public IHttpActionResult PostLogin(Login login)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = db.USUARIO.FirstOrDefault(u => u.USUARIO1 == login.USUARIO && u.CONTRASENA == login.CONSTRASENA && u.ESTADO_ID == 1);
 
-        //    if (exitName != null)
-        //    {
-        //        Usuario usuario = new Usuario
-        //        {
-        //            USUARIO1 = exitName.USUARIO1,
-        //            CONTRASENA = exitName.CONTRASENA,
-        //            ESTADO_ID = exitName.ESTADO_ID,
-        //            TIPO_USUARIO_CODIGO = exitName.TIPO_USUARIO_CODIGO
-        //        };
-        //        return Ok(usuario);
-        //    }
-        //    return BadRequest();
-        //}
+                if (result.TIPO_USUARIO_CODIGO == "1")
+                {
+                    return Ok("USUARIO ADMIN");
+                }
+                if (result.TIPO_USUARIO_CODIGO == "2")
+                {
+                    return Ok("USUARIO CLIENTE");
+                }
+                if (result.TIPO_USUARIO_CODIGO == "2")
+                {
+                    return Ok("USUARIO EMPLEADO");
+                }
+
+            }
+            return BadRequest("Usuario no encontrado");   
+        }
 
         [HttpDelete]
         public IHttpActionResult DeleteUsuario(string id)
