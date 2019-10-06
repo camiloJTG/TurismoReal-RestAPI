@@ -168,8 +168,14 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Publico\AccesoController.cs" />
+    <Compile Include="Controllers\Previos\EstadoController.cs" />
+    <Compile Include="Controllers\Ejemplos\HomeController.cs" />
+    <Compile Include="Controllers\Previos\TipoUsuarioController.cs" />
+    <Compile Include="Controllers\Usuarios\ClienteController.cs" />
+    <Compile Include="Controllers\Usuarios\EmpleadoController.cs" />
+    <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
+    <Compile Include="Controllers\Ejemplos\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Productos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +267,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TR.dato\TR.dato.csproj">
+      <Project>{66D8BD97-21A4-4099-A46A-17E96E919B0E}</Project>
+      <Name>TR.dato</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TR.negocio\TR.negocio.csproj">
       <Project>{00d3ddcb-228d-40b9-92ab-e2bf128d0158}</Project>
       <Name>TR.negocio</Name>

@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TR.negocio.Validaciones
+{
+    public class Validaciones
+    {
+        public bool ValidateEmpty(string descripcion)
+        {
+            var toUpper = descripcion.ToUpper();
+            var withoutSpace = ReducirEspacios(toUpper);
+
+            if (String.IsNullOrEmpty(withoutSpace))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private string ReducirEspacios(string descripcion)
+        {
+            while (descripcion.Contains(" "))
+            {
+                descripcion = descripcion.Replace(" ", "");
+            }
+            return descripcion;
+        }
+
+    }
+}

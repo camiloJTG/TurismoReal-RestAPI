@@ -1,6 +1,5 @@
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\bin\Debug\TR.dato.dll
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\bin\Debug\TR.dato.pdb
-C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.csprojAssemblyReference.cache
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.csproj.CoreCompileInputs.cache
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.dll
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.pdb
@@ -12,3 +11,4 @@ C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\bin\Debug\Oracl
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\bin\Debug\EntityFramework.xml
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.csproj.CopyComplete
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.csprojAssemblyReference.cache

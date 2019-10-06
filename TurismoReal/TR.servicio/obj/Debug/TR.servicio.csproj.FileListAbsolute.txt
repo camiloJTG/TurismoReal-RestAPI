@@ -98,3 +98,6 @@ C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\EntityF
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\EntityFramework.SqlServer.xml
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\TR.negocio.dll
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\TR.negocio.pdb
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\TR.dato.dll
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\TR.dato.pdb
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\TR.dato.dll.config
