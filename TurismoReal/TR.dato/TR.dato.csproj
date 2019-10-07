@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="database\script 03102019.ddl" />
     <None Include="packages.config" />
     <EntityDeploy Include="TurismoRealModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -151,6 +152,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="database\TurismoRealCamilo.sql" />
     <Content Include="TurismoRealModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TurismoRealModel.edmx</DependentUpon>
@@ -165,6 +167,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

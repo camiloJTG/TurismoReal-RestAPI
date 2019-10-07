@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -80,5 +82,88 @@ namespace TR.servicio.Controllers.Usuarios
             return BadRequest("El run ingresado no se encuentra registrado en el sistema");
         }
 
+        [HttpPost]
+        public IHttpActionResult PostEmpleado(TR.dato.EMPLEADO empleado)
+        {
+            if (ModelState.IsValid)
+            {
+                if (UserExists(empleado.RUN_EMPLEADO))
+                {
+                    var val1 = Validaciones.ValidateEmpty(empleado.APELLIDO_MATERNO);
+                    var val2 = Validaciones.ValidateEmpty(empleado.APELLIDO_PATERNO);
+                    var val3 = Validaciones.ValidateEmpty(empleado.CARGO);
+                    var val4 = Validaciones.ValidateEmpty(empleado.DIRECCION);
+                    var val5 = Validaciones.ValidateEmpty(empleado.EMAIL);
+                    var val6 = Validaciones.ValidateEmpty(empleado.NOMBRE);
+                    var val7 = Validaciones.ValidateEmpty(empleado.RUN_EMPLEADO);
+                    var val8 = Validaciones.ValidateEmpty(empleado.TELEFONO);
+
+                    if (!val1 && !val2 && !val3 && !val4 && !val5 && !val6 && !val7 && val8)
+                    {
+                        if (Validaciones.largeRun(empleado.RUN_EMPLEADO))
+                        {
+                            Conn.Connection.EMPLEADO.Add(empleado);
+                            Conn.Connection.SaveChanges();
+                            return Ok("Empleado registro correctamente");
+                        }
+                        return BadRequest("Ingrese un run sin puntos ni guión");
+                    }
+                    return BadRequest("Todos los campos deben estar completos");
+                }
+                return BadRequest("El run ingresado ya se encuentra registrado en el sistema");
+            }
+            return BadRequest("Ha ocurrido un error al momento de registrar un nuevo empleado");
+        }
+
+        [HttpDelete]
+        public IHttpActionResult DeleteEmpleado(string id)
+        {
+            var result = Conn.Connection.EMPLEADO.FirstOrDefault(x=>x.RUN_EMPLEADO == id);
+
+            if (result != null)
+            {
+                Conn.Connection.EMPLEADO.Remove(result);
+                Conn.Connection.SaveChanges();
+                return Ok("Empleado eliminado correctamente");
+            }
+            return BadRequest("El run ingresado no se encuentra registrado en el sistema");
+        }
+
+        [HttpPut]
+        public IHttpActionResult PutUsuario(string id, TR.dato.EMPLEADO empleado)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Ha ocurrido un error al momento de actualizar al empleado. Por favor, intentelo más tarde");
+            }
+            if (id != empleado.RUN_EMPLEADO)
+            {
+                return BadRequest("El run del empleado que desea actualizar no se encuentra registrado");
+            }
+
+            Conn.Connection.Entry(empleado).State = EntityState.Modified;
+
+            try
+            {
+                Conn.Connection.SaveChanges();
+                return Ok("Emepleado actualizado correctamente");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+                return BadRequest("Error al mmento de actualizar al empleado");
+            }
+        }
+
+        private bool UserExists(string id)
+        {
+            var result = Conn.Connection.EMPLEADO.FirstOrDefault(x=>x.RUN_EMPLEADO == id);
+
+            if (result == null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

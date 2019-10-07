@@ -29,5 +29,15 @@ namespace TR.negocio.Validaciones
             return descripcion;
         }
 
+        public bool largeRun(string run)
+        {
+            var data = ReducirEspacios(run);
+
+            if (data.Length > 9 && data.Length < 9)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

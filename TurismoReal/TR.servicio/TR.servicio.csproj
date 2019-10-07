@@ -235,6 +235,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Productos\" />
+    <Folder Include="Controllers\Reservas\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
