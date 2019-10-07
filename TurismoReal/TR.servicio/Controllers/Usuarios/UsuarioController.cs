@@ -35,8 +35,8 @@ namespace TR.servicio.Controllers
                 };
                 LIstUsuario.Add(usuario);
             }
-            return LIstUsuario;
-            //return LIstUsuario.ToList();
+            
+            return LIstUsuario.ToList();
         }
 
         [HttpGet]

@@ -172,6 +172,7 @@
     <Compile Include="Controllers\Previos\EstadoController.cs" />
     <Compile Include="Controllers\Ejemplos\HomeController.cs" />
     <Compile Include="Controllers\Previos\TipoUsuarioController.cs" />
+    <Compile Include="Controllers\Reservas\ReservaController.cs" />
     <Compile Include="Controllers\Usuarios\ClienteController.cs" />
     <Compile Include="Controllers\Usuarios\EmpleadoController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
@@ -235,7 +236,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Productos\" />
-    <Folder Include="Controllers\Reservas\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
