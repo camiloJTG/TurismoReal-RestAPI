@@ -22,5 +22,9 @@ namespace TR.negocio.Clases
         public string SUCURSAL_TELEFONO { get; set; }
         public string USUARIO_RUN { get; set; }
         public string USUARIO_CONTRASENA { get; set; }
+        public string TIPO_USUARIO_DESCRIPCION { get; set; }
+        public string ESTADO_ENTIDAD { get; set; }
+        public string ESTADO_DESCRIPCION { get; set; }
+
     }
 }
