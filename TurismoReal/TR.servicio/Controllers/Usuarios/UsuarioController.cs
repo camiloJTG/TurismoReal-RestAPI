@@ -18,14 +18,14 @@ namespace TR.servicio.Controllers
         Validaciones Validaciones = new Validaciones();
         
         [HttpGet]
-        public IEnumerable<Usuario> GetUsuario()
+        public IEnumerable<TR_Usuario> GetUsuario()
         {
             var list = Conn.Connection.USUARIO.ToList();
-            List<Usuario> LIstUsuario = new List<Usuario>();
+            List<TR_Usuario> LIstUsuario = new List<TR_Usuario>();
 
             foreach (var i in list)
             {
-                Usuario usuario = new Usuario
+                TR_Usuario usuario = new TR_Usuario
                 {
                     CONTRASENA = i.CONTRASENA,
                     ESTADO_DESCRIPCION = i.ESTADO.DESCRIPCION,
@@ -35,7 +35,8 @@ namespace TR.servicio.Controllers
                 };
                 LIstUsuario.Add(usuario);
             }
-            return LIstUsuario.ToList();
+            return LIstUsuario;
+            //return LIstUsuario.ToList();
         }
 
         [HttpGet]
@@ -47,7 +48,7 @@ namespace TR.servicio.Controllers
             {
                 if (!Validaciones.ValidateEmpty(result.USUARIO1))
                 {
-                    Usuario usuario = new Usuario
+                    TR_Usuario usuario = new TR_Usuario
                     {
                         USUARIO1 = result.USUARIO1,
                         TIPO_USUARIO_DESCRIPCION = result.TIPO_USUARIO.DESCRIPCION,

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TR.negocio.Clases
 {
-    public class Usuario
+    public class TR_Usuario
     {
         public string USUARIO1 { get; set; }
         public string CONTRASENA { get; set; }

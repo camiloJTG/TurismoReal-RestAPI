@@ -18,14 +18,14 @@ namespace TR.servicio.Controllers
         private Validaciones Validaciones = new Validaciones();
 
         [HttpGet]
-        public IEnumerable<Estado> GetEstado()
+        public IEnumerable<TR_Estado> GetEstado()
         {
             var list = Conn.Connection.ESTADO.ToList();
-            List<Estado> ListEstado = new List<Estado>();
+            List<TR_Estado> ListEstado = new List<TR_Estado>();
 
             foreach (var i in list)
             {
-                Estado Est = new Estado
+                TR_Estado Est = new TR_Estado
                 {
                     ESTADO_ID = i.ESTADO_ID,
                     ENTIDAD = i.ENTIDAD,
@@ -43,7 +43,7 @@ namespace TR.servicio.Controllers
 
             if (result != null)
             {
-                Estado estado = new Estado();
+                TR_Estado estado = new TR_Estado();
                 estado.DESCRIPCION = result.DESCRIPCION;
                 estado.ENTIDAD = result.ENTIDAD;
                 estado.ESTADO_ID = result.ESTADO_ID;

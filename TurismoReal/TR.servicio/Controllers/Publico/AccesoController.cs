@@ -17,7 +17,7 @@ namespace TR.servicio.Controllers
 
         //Servicio que permite verificar el inicio de sesión de un usuario
         [HttpPost]
-        public IHttpActionResult PostAcceso(Acceso acceso)
+        public IHttpActionResult PostAcceso(TR_Acceso acceso)
         {
             var result = Conn.Connection.USUARIO.FirstOrDefault(x=> x.USUARIO1 == acceso.USUARIO1 && x.CONTRASENA == acceso.CONTRASENA);
 

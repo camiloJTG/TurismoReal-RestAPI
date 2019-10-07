@@ -18,14 +18,14 @@ namespace TR.servicio.Controllers.Usuarios
         private Validaciones Validaciones = new Validaciones();
 
         [HttpGet]
-        public IEnumerable<Empleado> GetEmpleado()
+        public IEnumerable<TR_Empleado> GetEmpleado()
         {
             var list = Conn.Connection.EMPLEADO.ToList();
-            List<Empleado> ListEmpleado = new List<Empleado>();
+            List<TR_Empleado> ListEmpleado = new List<TR_Empleado>();
 
             foreach (var i in list)
             {
-                Empleado emp = new Empleado
+                TR_Empleado emp = new TR_Empleado
                 {
                     APELLIDO_MATERNO = i.APELLIDO_MATERNO,
                     APELLIDO_PATERNO = i.APELLIDO_PATERNO,
@@ -57,7 +57,7 @@ namespace TR.servicio.Controllers.Usuarios
 
             if (result != null)
             {
-                Empleado emp = new Empleado
+                TR_Empleado emp = new TR_Empleado
                 {
                     APELLIDO_MATERNO = result.APELLIDO_MATERNO,
                     APELLIDO_PATERNO = result.APELLIDO_PATERNO,

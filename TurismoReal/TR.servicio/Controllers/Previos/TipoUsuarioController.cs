@@ -15,19 +15,19 @@ namespace TR.servicio.Controllers
     public class TipoUsuarioController : ApiController
     {
         private ConexionEntities Conn = new ConexionEntities();
-        private TipoUsuario tu = new TipoUsuario();
+        private TR_TipoUsuario tu = new TR_TipoUsuario();
         private Validaciones Validaciones = new Validaciones();  
 
         //Listado de los tipos de usuarios existentes en el sistema 
         [HttpGet]
-        public IEnumerable<TipoUsuario> GetTipoUsuario()
+        public IEnumerable<TR_TipoUsuario> GetTipoUsuario()
         {
             var list = Conn.Connection.TIPO_USUARIO.ToList();
-            List<TipoUsuario> ListUsuario = new List<TipoUsuario>();
+            List<TR_TipoUsuario> ListUsuario = new List<TR_TipoUsuario>();
 
             foreach (var i in list)
             {
-                TipoUsuario tu = new TipoUsuario
+                TR_TipoUsuario tu = new TR_TipoUsuario
                 {
                     CODIGO = i.CODIGO,
                     DESCRIPCION = i.DESCRIPCION
@@ -46,7 +46,7 @@ namespace TR.servicio.Controllers
 
             if (result != null)
             {
-                TipoUsuario tu = new TipoUsuario
+                TR_TipoUsuario tu = new TR_TipoUsuario
                 {
                     CODIGO = result.CODIGO,
                     DESCRIPCION = result.DESCRIPCION

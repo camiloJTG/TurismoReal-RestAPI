@@ -10,3 +10,15 @@ C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\TR
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\TR.dato.dll.config
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\EntityFramework.xml
 C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.negocio\obj\Debug\TR.negocio.csproj.CopyComplete
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\TR.negocio.dll
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\TR.negocio.pdb
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\TR.dato.dll
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\EntityFramework.dll
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\TR.dato.pdb
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\TR.dato.dll.config
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\bin\Debug\EntityFramework.xml
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\obj\Debug\TR.negocio.csprojAssemblyReference.cache
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\obj\Debug\TR.negocio.csproj.CoreCompileInputs.cache
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\obj\Debug\TR.negocio.csproj.CopyComplete
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\obj\Debug\TR.negocio.dll
+C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.negocio\obj\Debug\TR.negocio.pdb

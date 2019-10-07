@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Acceso.cs" />
-    <Compile Include="Clases\Cliente.cs" />
-    <Compile Include="Clases\Empleado.cs" />
-    <Compile Include="Clases\Estado.cs" />
-    <Compile Include="Clases\TipoUsuario.cs" />
-    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Clases\TR_Acceso.cs" />
+    <Compile Include="Clases\TR_Cliente.cs" />
+    <Compile Include="Clases\TR_Empleado.cs" />
+    <Compile Include="Clases\TR_Estado.cs" />
+    <Compile Include="Clases\TR_TipoUsuario.cs" />
+    <Compile Include="Clases\TR_Usuario.cs" />
     <Compile Include="Conexión\ConexionEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\Validaciones.cs" />

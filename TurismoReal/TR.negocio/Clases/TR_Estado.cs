@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TR.negocio.Clases
 {
-    public class Estado
+    public class TR_Estado
     {
         public decimal ESTADO_ID { get; set; }
         public string ENTIDAD { get; set; }
