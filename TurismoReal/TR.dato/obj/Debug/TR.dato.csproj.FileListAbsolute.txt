@@ -25,3 +25,4 @@ C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\T
 C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.csproj.CopyComplete
 C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.dll
 C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.pdb
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.dato\obj\Debug\TR.dato.csprojAssemblyReference.cache
