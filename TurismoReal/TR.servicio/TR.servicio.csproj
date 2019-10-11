@@ -169,6 +169,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Productos\DepartamentoController.cs" />
+    <Compile Include="Controllers\Productos\ServicioController.cs" />
     <Compile Include="Controllers\Productos\TourController.cs" />
     <Compile Include="Controllers\Publico\AccesoController.cs" />
     <Compile Include="Controllers\Previos\EstadoController.cs" />

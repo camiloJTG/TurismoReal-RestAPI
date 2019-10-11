@@ -27,7 +27,11 @@ namespace TR.servicio.Controllers
                 {
                     if (result != null)
                     {
-                        return Ok(validaciones.ValidarDatos(result.ESTADO_ID, result.TIPO_USUARIO_CODIGO));
+                        if (validaciones.ValidarDatos(result.ESTADO_ID,result.TIPO_USUARIO_CODIGO) == true)
+                        {
+                            return Ok(result); 
+                        }
+                        //return Ok(validaciones.ValidarDatos(result.ESTADO_ID, result.TIPO_USUARIO_CODIGO));
                     }
                     return BadRequest("Las credenciales ingresadas no son correctas");
                 }

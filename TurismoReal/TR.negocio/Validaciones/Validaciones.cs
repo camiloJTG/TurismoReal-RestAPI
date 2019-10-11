@@ -40,23 +40,23 @@ namespace TR.negocio.Validaciones
             return false;
         }
 
-        public string ValidarDatos(decimal estado, string tipoUsuario)
+        public bool ValidarDatos(decimal estado, string tipoUsuario)
         {
             if (estado == 1)
             {
                 switch (tipoUsuario)
                 {
                     case "A":
-                        return "Administrador";
+                        return true;
                     case "E":
-                        return "Empleado";
+                        return true;
                     case "C":
-                        return "Cliente";
+                        return true;
                     default:
-                        return "Ha ocurrido un error. Intentelo nuevamente";
+                        return false;
                 }
             }
-            return "El usuario ingresado tiene su cuenta deshabilitada";
+            return false;
         }
     }
 }
