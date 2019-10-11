@@ -168,10 +168,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Productos\DepartamentoController.cs" />
+    <Compile Include="Controllers\Productos\TourController.cs" />
     <Compile Include="Controllers\Publico\AccesoController.cs" />
     <Compile Include="Controllers\Previos\EstadoController.cs" />
     <Compile Include="Controllers\Ejemplos\HomeController.cs" />
     <Compile Include="Controllers\Previos\TipoUsuarioController.cs" />
+    <Compile Include="Controllers\Reservas\DetalleReservaController.cs" />
+    <Compile Include="Controllers\Reservas\FacturaController.cs" />
+    <Compile Include="Controllers\Reservas\PaqueteProductoController.cs" />
     <Compile Include="Controllers\Reservas\ReservaController.cs" />
     <Compile Include="Controllers\Usuarios\ClienteController.cs" />
     <Compile Include="Controllers\Usuarios\EmpleadoController.cs" />
@@ -235,7 +240,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Productos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

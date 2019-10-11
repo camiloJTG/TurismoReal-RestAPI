@@ -14,6 +14,7 @@ namespace TR.dato
     
     public partial class DETALLE_RESERVA
     {
+
         public decimal DETALLE_RESERVA_ID { get; set; }
         public decimal RESERVA_ID { get; set; }
         public decimal PAQUETE_ID { get; set; }

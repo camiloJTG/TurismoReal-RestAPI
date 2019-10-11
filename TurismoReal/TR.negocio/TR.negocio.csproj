@@ -43,10 +43,14 @@
   <ItemGroup>
     <Compile Include="Clases\TR_Acceso.cs" />
     <Compile Include="Clases\TR_Cliente.cs" />
+    <Compile Include="Clases\TR_Departamento.cs" />
     <Compile Include="Clases\TR_Empleado.cs" />
     <Compile Include="Clases\TR_Estado.cs" />
+    <Compile Include="Clases\TR_Factura.cs" />
+    <Compile Include="Clases\TR_PaqueteProducto.cs" />
     <Compile Include="Clases\TR_Reserva.cs" />
     <Compile Include="Clases\TR_TipoUsuario.cs" />
+    <Compile Include="Clases\TR_Tour.cs" />
     <Compile Include="Clases\TR_Usuario.cs" />
     <Compile Include="Conexión\ConexionEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -20,23 +20,10 @@ namespace TR.servicio.Controllers
         [HttpGet]
         public IEnumerable<TR_Usuario> GetUsuario()
         {
-            var list = Conn.Connection.USUARIO.ToList();
-            List<TR_Usuario> LIstUsuario = new List<TR_Usuario>();
+            var list = Conn.Connection.USUARIO.Select(x=> new TR_Usuario { USUARIO1 = x.USUARIO1, CONTRASENA = x.CONTRASENA, ESTADO_DESCRIPCION = x.ESTADO.DESCRIPCION, TIPO_USUARIO_DESCRIPCION = x.TIPO_USUARIO.DESCRIPCION});
 
-            foreach (var i in list)
-            {
-                TR_Usuario usuario = new TR_Usuario
-                {
-                    CONTRASENA = i.CONTRASENA,
-                    ESTADO_DESCRIPCION = i.ESTADO.DESCRIPCION,
-                    ESTADO_ENTIDAD = i.ESTADO.ENTIDAD,
-                    TIPO_USUARIO_DESCRIPCION = i.TIPO_USUARIO.DESCRIPCION,
-                    USUARIO1 = i.USUARIO1
-                };
-                LIstUsuario.Add(usuario);
-            }
-            
-            return LIstUsuario.ToList();
+
+            return list.ToList();
         }
 
         [HttpGet]

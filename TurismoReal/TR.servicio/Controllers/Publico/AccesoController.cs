@@ -19,17 +19,24 @@ namespace TR.servicio.Controllers
         [HttpPost]
         public IHttpActionResult PostAcceso(TR_Acceso acceso)
         {
-            var result = Conn.Connection.USUARIO.FirstOrDefault(x=> x.USUARIO1 == acceso.USUARIO1 && x.CONTRASENA == acceso.CONTRASENA);
-
-            if (ModelState.IsValid)
+            try
             {
-                if (result != null)
+                var result = Conn.Connection.USUARIO.FirstOrDefault(x => x.USUARIO1 == acceso.USUARIO1 && x.CONTRASENA == acceso.CONTRASENA);
+
+                if (ModelState.IsValid)
                 {
-                    return Ok(validaciones.ValidarDatos(result.ESTADO_ID, result.TIPO_USUARIO_CODIGO));
+                    if (result != null)
+                    {
+                        return Ok(validaciones.ValidarDatos(result.ESTADO_ID, result.TIPO_USUARIO_CODIGO));
+                    }
+                    return BadRequest("Las credenciales ingresadas no son correctas");
                 }
-                return BadRequest("Las credenciales ingresadas no son correctas");
             }
-            return BadRequest("Ha ocurrido un error al momento de iniciar sesión");
+            catch (Exception)
+            {
+                return BadRequest("Ha ocurrido un error al momento de iniciar sesión");
+            }
+            return BadRequest();
         }
         
         //Servicio que permite registrar a un cliente en el sistema
