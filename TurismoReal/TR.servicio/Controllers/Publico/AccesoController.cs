@@ -29,6 +29,7 @@ namespace TR.servicio.Controllers
                     {
                         if (validaciones.ValidarDatos(result.ESTADO_ID,result.TIPO_USUARIO_CODIGO) == true)
                         {
+                            
                             return Ok(result); 
                         }
                         //return Ok(validaciones.ValidarDatos(result.ESTADO_ID, result.TIPO_USUARIO_CODIGO));

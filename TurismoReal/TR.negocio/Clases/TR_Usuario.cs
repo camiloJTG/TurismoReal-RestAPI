@@ -13,5 +13,6 @@ namespace TR.negocio.Clases
         public string ESTADO_DESCRIPCION { get; set; }
         public string ESTADO_ENTIDAD { get; set; }
         public string TIPO_USUARIO_DESCRIPCION { get; set; }
+        public TR_TipoUsuario TipoUsuario { get; set; } 
     }
 }

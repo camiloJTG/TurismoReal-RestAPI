@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\TR_Comuna.cs" />
     <Compile Include="Clases\TR_Entorno.cs" />
     <Compile Include="Clases\TR_Imagen.cs" />
     <Compile Include="Clases\TR_Inventario.cs" />

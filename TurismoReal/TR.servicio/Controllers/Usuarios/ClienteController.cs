@@ -49,29 +49,36 @@ namespace TR.servicio.Controllers.Usuarios
         [HttpGet]
         public IHttpActionResult GetCliente(string id)
         {
-            var result = con.Connection.CLIENTE.FirstOrDefault(x=>x.RUN_CLIENTE == id);
-
-            if (result != null)
+            try
             {
-                TR_Cliente cliente = new TR_Cliente
+                var result = con.Connection.CLIENTE.FirstOrDefault(x => x.RUN_CLIENTE == id);
+
+                if (result != null)
                 {
-                    APELLIDO_MATERNO = result.APELLIDO_MATERNO,
-                    APELLIDO_PATERNO = result.APELLIDO_PATERNO,
-                    DIRECCION = result.DIRECCION,
-                    EMAIL = result.EMAIL,
-                    FECHA_NACIMIENTO = result.FECHA_NACIMIENTO,
-                    RUN_CLIENTE = result.RUN_CLIENTE,
-                    NOMBRE = result.NOMBRE,
-                    TELEFONO = result.TELEFONO,
-                    USUARIO_NOMBRE = result.USUARIO1.USUARIO1,
-                    USUARIO_CONTRASENA = result.USUARIO1.CONTRASENA,
-                    ESTADO_DESCRIPCION = result.USUARIO1.ESTADO.DESCRIPCION,
-                    ESTADO_ENTIDAD = result.USUARIO1.ESTADO.ENTIDAD,
-                    TIPO_USUARIO_DESCRIPCION = result.USUARIO1.TIPO_USUARIO.DESCRIPCION
-                };
-                return Ok(cliente);
+                    TR_Cliente cliente = new TR_Cliente
+                    {
+                        APELLIDO_MATERNO = result.APELLIDO_MATERNO,
+                        APELLIDO_PATERNO = result.APELLIDO_PATERNO,
+                        DIRECCION = result.DIRECCION,
+                        EMAIL = result.EMAIL,
+                        FECHA_NACIMIENTO = result.FECHA_NACIMIENTO,
+                        RUN_CLIENTE = result.RUN_CLIENTE,
+                        NOMBRE = result.NOMBRE,
+                        TELEFONO = result.TELEFONO,
+                        USUARIO_NOMBRE = result.USUARIO1.USUARIO1,
+                        USUARIO_CONTRASENA = result.USUARIO1.CONTRASENA,
+                        ESTADO_DESCRIPCION = result.USUARIO1.ESTADO.DESCRIPCION,
+                        ESTADO_ENTIDAD = result.USUARIO1.ESTADO.ENTIDAD,
+                        TIPO_USUARIO_DESCRIPCION = result.USUARIO1.TIPO_USUARIO.DESCRIPCION
+                    };
+                    return Ok(cliente);
+                }
+                return BadRequest("El run ingresado no se encuentra registrado dentro de la base de datos");
             }
-            return BadRequest("El run ingresado no se encuentra registrado dentro de la base de datos");
+            catch (Exception)
+            {
+                return BadRequest("Se ha producido un error al momento de registrar un nuevo empelado");
+            }
         }
 
         [HttpDelete]
