@@ -98,7 +98,7 @@ namespace TR.servicio.Controllers.Usuarios
                     var val7 = Validaciones.ValidateEmpty(empleado.RUN_EMPLEADO);
                     var val8 = Validaciones.ValidateEmpty(empleado.TELEFONO);
 
-                    if (!val1 && !val2 && !val3 && !val4 && !val5 && !val6 && !val7 && val8)
+                    if (!val1 && !val2 && !val3 && !val4 && !val5 && !val6 && !val7 && !val8)
                     {
                         if (Validaciones.largeRun(empleado.RUN_EMPLEADO))
                         {

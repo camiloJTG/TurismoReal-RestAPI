@@ -33,7 +33,7 @@ namespace TR.negocio.Validaciones
         {
             var data = ReducirEspacios(run);
 
-            if (data.Length > 9 && data.Length < 9)
+            if (data.Length > 8 && data.Length < 10)
             {
                 return true;
             }

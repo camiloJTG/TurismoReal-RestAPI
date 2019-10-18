@@ -16,11 +16,12 @@ namespace TR.servicio.Controllers
     {
         ConexionEntities Conn = new ConexionEntities();
         Validaciones Validaciones = new Validaciones();
-        
+        TR_Usuario Usuario = new TR_Usuario();
+
         [HttpGet]
         public IEnumerable<TR_Usuario> GetUsuario()
         {
-            var list = Conn.Connection.USUARIO.Select(x=> new TR_Usuario
+            var list = Conn.Connection.USUARIO.Select(x => new TR_Usuario
             {
                 USUARIO1 = x.USUARIO1,
                 CONTRASENA = x.CONTRASENA,

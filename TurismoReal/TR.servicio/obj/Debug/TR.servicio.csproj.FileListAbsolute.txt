@@ -204,3 +204,6 @@ C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.servicio\obj\Deb
 C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.servicio\obj\Debug\TR.servicio.csproj.CopyComplete
 C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.servicio\obj\Debug\TR.servicio.dll
 C:\Users\cetecom\Desktop\git\TurismoReal-RestAPI\TurismoReal\TR.servicio\obj\Debug\TR.servicio.pdb
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\JWT.dll
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\JWT.pdb
+C:\Users\camil\GitHub\C#\TurismoReal-RestAPI\TurismoReal\TR.servicio\bin\JWT.xml

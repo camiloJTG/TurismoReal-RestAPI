@@ -11,7 +11,5 @@ namespace TR.negocio.Clases
         public decimal COMUNA_ID { get; set; }
         public string NOMBRE_COMUNA { get; set; }
         public decimal PROVINCIA_ID { get; set; }
-
-
     }
 }
