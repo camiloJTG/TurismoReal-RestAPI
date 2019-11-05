@@ -1,122 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TR.negocio.Clases;
-using TR.negocio.Conexión;
-using TR.negocio.Validaciones;
+using TR.negocio.Clases.Productos;
+using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class EntornoController : ApiController
     {
-        private ConexionEntities con = new ConexionEntities();
-        private Validaciones validaciones = new Validaciones();
+        private readonly Val_entorno validaciones = new Val_entorno();
 
         [HttpGet]
-        public IEnumerable<TR_Entorno> GetEntorno()
+        public IEnumerable<TR_entorno> LIstadoEntorno()
         {
-            var list = con.Connection.ENTORNO.Select(x=> new TR_Entorno {
-                ENTORNO_ID = x.ENTORNO_ID,
-                IMG = x.IMG,
-                NOMBRE = x.NOMBRE
-            });
-            return list.ToList();
+            var listado = validaciones.ListadoEntorno();
+            return listado.ToList();
         }
 
         [HttpGet]
-        public IHttpActionResult GetEntorno(int id)
+        public IHttpActionResult BuscarEntorno(decimal id)
         {
-            var result = con.Connection.ENTORNO.Where(x => x.ENTORNO_ID== id).Select(x=> new TR_Entorno{
-                ENTORNO_ID = x.ENTORNO_ID,
-                IMG = x.IMG
-            });
-
-            if (result != null)
+            var resultado = validaciones.BuscarEntorno(id);
+            if (resultado != null)
             {
-                return Ok(result);
+                return Ok(resultado);
             }
-            return BadRequest("El código del entorno ingreso no se encuentra registrado en el sistema");
+            return BadRequest("El código del entorno ingresado no arrojó resultados");
         }
 
         [HttpPost]
-        public IHttpActionResult PostEntorno(TR.dato.ENTORNO entorno)
+        public IHttpActionResult AgregarEntorno(TR_entorno entorno)
         {
-            try
+            var resultado = validaciones.AgregarEntorno(entorno);
+            if (resultado == "OK")
             {
-                if (userExist(entorno.ENTORNO_ID))
-                {
-                    var val1 = validaciones.ValidateEmpty(entorno.NOMBRE);
-                    var val2 = validaciones.ValidateEmpty(entorno.IMG);
-
-                    if (!val1 && !val2)
-                    {
-                        con.Connection.ENTORNO.Add(entorno);
-                        con.Connection.SaveChanges();
-                        return Ok("Entorno guardado correctamente");
-                    }
-                    return BadRequest("Todos los campos deben estar completos");
-                }
-                return BadRequest("El entorno ingresado ya se encuentra registrado");
+                return Ok("Entorno registrado correctamente");
             }
-            catch (Exception)
-            {
-                return BadRequest("Ha ocurrido un error al momento de ingresar un nuevo inventario. Por favor, intentelo nuevamente");
-            }
+            return BadRequest(resultado);
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteEntorno(int id)
+        public IHttpActionResult EliminarEntorno(decimal id)
         {
-            var result = con.Connection.ENTORNO.FirstOrDefault(x=>x.ENTORNO_ID == id);
-
-            if (result != null)
+            var resultado = validaciones.EliminarEntorno(id);
+            if (resultado == "OK")
             {
-                con.Connection.ENTORNO.Remove(result);
-                con.Connection.SaveChanges();
                 return Ok("Entorno eliminado correctamente");
             }
-            return BadRequest("El código ingresado no se encuentra registrado en el sistema");
+            return BadRequest(resultado);
         }
 
         [HttpPut]
-        public IHttpActionResult PutEntorno(int id, TR.dato.ENTORNO entorno)
+        public IHttpActionResult ActualizarEntorno(decimal id, TR_entorno entorno)
         {
-            if (!ModelState.IsValid)
+            var resultado = validaciones.ActualizarEntorno(id, entorno);
+            if (resultado == "OK")
             {
-                return BadRequest("Ha ocurrido un error al momento de actualizar el entorno. Por favor, intentelo más tarde");
+                return Ok("Entorno actualizado");
             }
-            if (id != entorno.ENTORNO_ID)
-            {
-                return BadRequest("El código del entorno que desea actualizar no se encuentra registrado");
-            }
-
-            con.Connection.Entry(entorno).State = EntityState.Modified;
-
-            try
-            {
-                con.Connection.SaveChanges();
-                return Ok("Entorno actualizado correctamente");
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-
-                return BadRequest("Error al momento de actualizar el entorno");
-            }
-        }
-
-        private bool userExist(decimal id)
-        {
-            var result = con.Connection.INVENTARIO.FirstOrDefault(x => x.INVENTARIO_ID == id);
-            if (result == null)
-            {
-                return true;
-            }
-            return false;
+            return BadRequest(resultado);
         }
     }
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b648a464bce44382b34f30657cff1795" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.CLIENTE" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.COMUNA" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DEPARTAMENTO" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DEPARTAMENTO_SERVICIO" Width="1.5" PointX="11.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE_RESERVA" Width="1.5" PointX="13.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPLEADO" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ENTORNO" Width="1.5" PointX="3.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ESTADO" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FACTURA" Width="1.5" PointX="10.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IMAGEN" Width="1.5" PointX="11.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.INVENTARIO" Width="1.5" PointX="3.75" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAQUETE_PRODUCTO" Width="1.5" PointX="11.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PASAJERO" Width="1.5" PointX="10.5" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PROVINCIA" Width="1.5" PointX="1.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REGION" Width="1.5" PointX="1.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RESERVA" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SERVICIO" Width="1.5" PointX="9" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SUCURSAL" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TOUR" Width="1.5" PointX="9" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIO" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VALORACION" Width="1.5" PointX="8.25" PointY="18.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.CLIENTE_COMUNA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CLIENTE_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CLIENTE_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VALORACION_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.COMUNA_PROVINCIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DEPARTAMENTO_COMUNA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADO_COMUNA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SUCURSAL_COMUNA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DEPARTAMENTO_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DEPARTAMENTO_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.IMAGEN_DEPARTAMENTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PP_DEPARTAMENTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VALORACION_DEPARTAMENTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DEPARTAMENTO_SERVICIO_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_RESERVA_PP_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADO_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADO_SUCURSAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADO_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_EMPLEADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SUCURSAL_EMPLEADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.IMAGEN_ENTORNO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.USUARIO_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FACTURA_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.IMAGEN_TOUR_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PAQUETE_PRODUCTO_TOUR_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PASAJERO_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PROVINCIA_REGION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.USUARIO_TIPO_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DEPARTAMENTO_ENTORNO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DEPARTAMENTO_INVENTARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_PASAJERO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

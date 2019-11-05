@@ -1,169 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TR.negocio.Clases;
-using TR.negocio.Conexión;
-using TR.negocio.Validaciones;
+using TR.negocio.Clases.Listado;
+using TR.negocio.Clases.Usuarios;
+using TR.negocio.Validaciones.Usuarios;
 
 namespace TR.servicio.Controllers.Usuarios
 {
     public class EmpleadoController : ApiController
     {
-        private ConexionEntities Conn = new ConexionEntities();
-        private Validaciones Validaciones = new Validaciones();
+        private Val_empleado validaciones = new Val_empleado();
 
         [HttpGet]
-        public IEnumerable<TR_Empleado> GetEmpleado()
+        public IEnumerable<TR_listadoEmpleado> ListarEmpleado()
         {
-            var list = Conn.Connection.EMPLEADO.ToList();
-            List<TR_Empleado> ListEmpleado = new List<TR_Empleado>();
-
-            foreach (var i in list)
-            {
-                TR_Empleado emp = new TR_Empleado
-                {
-                    APELLIDO_MATERNO = i.APELLIDO_MATERNO,
-                    APELLIDO_PATERNO = i.APELLIDO_PATERNO,
-                    CARGO = i.CARGO,
-                    DIRECCION = i.DIRECCION,
-                    EMAIL = i.EMAIL,
-                    NOMBRE = i.NOMBRE,
-                    RUN_EMPLEADO = i.RUN_EMPLEADO,
-                    FECHA_NACIMIENTO = i.FECHA_NACIMIENTO,
-                    TELEFONO = i.TELEFONO,
-                    COMUNA_NOMBRE = i.COMUNA.NOMBRE_COMUNA,
-                    ESTADO_DESCRIPCION = i.USUARIO1.ESTADO.DESCRIPCION,
-                    ESTADO_ENTIDAD = i.USUARIO1.ESTADO.ENTIDAD,
-                    SUCURSAL_DIRECCION = i.SUCURSAL.DIRECCION,
-                    SUCURSAL_TELEFONO = i.SUCURSAL.TELEFONO,
-                    TIPO_USUARIO_DESCRIPCION = i.USUARIO1.TIPO_USUARIO.DESCRIPCION,
-                    USUARIO_CONTRASENA = i.USUARIO1.CONTRASENA,
-                    USUARIO_RUN = i.USUARIO1.USUARIO1
-                };
-                ListEmpleado.Add(emp);
-            }
-            return ListEmpleado.ToList();
+            var resultado = validaciones.ListadoEmpleado();
+            return resultado.ToList();
         }
 
         [HttpGet]
-        public IHttpActionResult GetEmpleado(string id)
+        public IHttpActionResult BuscarEmpleado(string id)
         {
-            var result = Conn.Connection.EMPLEADO.FirstOrDefault(x=>x.RUN_EMPLEADO == id);
-
-            if (result != null)
+            var resultado = validaciones.BuscarEmpleado(id);
+            if (resultado != null)
             {
-                TR_Empleado emp = new TR_Empleado
-                {
-                    APELLIDO_MATERNO = result.APELLIDO_MATERNO,
-                    APELLIDO_PATERNO = result.APELLIDO_PATERNO,
-                    CARGO = result.CARGO,
-                    DIRECCION = result.DIRECCION,
-                    EMAIL = result.EMAIL,
-                    NOMBRE = result.NOMBRE,
-                    RUN_EMPLEADO = result.RUN_EMPLEADO,
-                    FECHA_NACIMIENTO = result.FECHA_NACIMIENTO,
-                    TELEFONO = result.TELEFONO,
-                    COMUNA_NOMBRE = result.COMUNA.NOMBRE_COMUNA,
-                    ESTADO_DESCRIPCION = result.USUARIO1.ESTADO.DESCRIPCION,
-                    ESTADO_ENTIDAD = result.USUARIO1.ESTADO.ENTIDAD,
-                    SUCURSAL_DIRECCION = result.SUCURSAL.DIRECCION,
-                    SUCURSAL_TELEFONO = result.SUCURSAL.TELEFONO,
-                    TIPO_USUARIO_DESCRIPCION = result.USUARIO1.TIPO_USUARIO.DESCRIPCION,
-                    USUARIO_CONTRASENA = result.USUARIO1.CONTRASENA,
-                    USUARIO_RUN = result.USUARIO1.USUARIO1
-                };
-                return Ok(emp);
+                return Ok(resultado);
             }
-            return BadRequest("El run ingresado no se encuentra registrado en el sistema");
+            return BadRequest("El run ingresado no arrojó resultados");
         }
 
         [HttpPost]
-        public IHttpActionResult PostEmpleado(TR.dato.EMPLEADO empleado)
+        public IHttpActionResult AgregarEmpleado(TR_empleado empleado)
         {
-            if (ModelState.IsValid)
+            var resultado = validaciones.AgregarEmpleado(empleado);
+            if (resultado == "OK")
             {
-                if (UserExists(empleado.RUN_EMPLEADO))
-                {
-                    var val1 = Validaciones.ValidateEmpty(empleado.APELLIDO_MATERNO);
-                    var val2 = Validaciones.ValidateEmpty(empleado.APELLIDO_PATERNO);
-                    var val3 = Validaciones.ValidateEmpty(empleado.CARGO);
-                    var val4 = Validaciones.ValidateEmpty(empleado.DIRECCION);
-                    var val5 = Validaciones.ValidateEmpty(empleado.EMAIL);
-                    var val6 = Validaciones.ValidateEmpty(empleado.NOMBRE);
-                    var val7 = Validaciones.ValidateEmpty(empleado.RUN_EMPLEADO);
-                    var val8 = Validaciones.ValidateEmpty(empleado.TELEFONO);
-
-                    if (!val1 && !val2 && !val3 && !val4 && !val5 && !val6 && !val7 && !val8)
-                    {
-                        if (Validaciones.largeRun(empleado.RUN_EMPLEADO))
-                        {
-                            Conn.Connection.EMPLEADO.Add(empleado);
-                            Conn.Connection.SaveChanges();
-                            return Ok("Empleado registro correctamente");
-                        }
-                        return BadRequest("Ingrese un run sin puntos ni guión");
-                    }
-                    return BadRequest("Todos los campos deben estar completos");
-                }
-                return BadRequest("El run ingresado ya se encuentra registrado en el sistema");
+                return Ok("Empleado registrado correctamente");
             }
-            return BadRequest("Ha ocurrido un error al momento de registrar un nuevo empleado");
+            return BadRequest(resultado);
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteEmpleado(string id)
+        public IHttpActionResult EliminarEmpleado(string id)
         {
-            var result = Conn.Connection.EMPLEADO.FirstOrDefault(x=>x.RUN_EMPLEADO == id);
-
-            if (result != null)
+            var resultado = validaciones.EliminarEmpleado(id);
+            if (resultado == "OK")
             {
-                Conn.Connection.EMPLEADO.Remove(result);
-                Conn.Connection.SaveChanges();
                 return Ok("Empleado eliminado correctamente");
             }
-            return BadRequest("El run ingresado no se encuentra registrado en el sistema");
+            return BadRequest(resultado);
         }
 
         [HttpPut]
-        public IHttpActionResult PutUsuario(string id, TR.dato.EMPLEADO empleado)
+        public IHttpActionResult ActualizarEmpleado(string id, TR_empleado empleado)
         {
-            if (!ModelState.IsValid)
+            var resultado = validaciones.ActualizarEmpleado(id, empleado);
+            if (resultado == "OK")
             {
-                return BadRequest("Ha ocurrido un error al momento de actualizar al empleado. Por favor, intentelo más tarde");
+                return Ok("Empleado actualizado correctamente");
             }
-            if (id != empleado.RUN_EMPLEADO)
-            {
-                return BadRequest("El run del empleado que desea actualizar no se encuentra registrado");
-            }
-
-            Conn.Connection.Entry(empleado).State = EntityState.Modified;
-
-            try
-            {
-                Conn.Connection.SaveChanges();
-                return Ok("Emepleado actualizado correctamente");
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-
-                return BadRequest("Error al mmento de actualizar al empleado");
-            }
-        }
-
-        private bool UserExists(string id)
-        {
-            var result = Conn.Connection.EMPLEADO.FirstOrDefault(x=>x.RUN_EMPLEADO == id);
-
-            if (result == null)
-            {
-                return true;
-            }
-            return false;
+            return BadRequest(resultado);
         }
     }
 }

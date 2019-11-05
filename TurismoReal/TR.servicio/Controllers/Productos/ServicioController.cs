@@ -1,126 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TR.negocio.Clases;
-using TR.negocio.Conexión;
-using TR.negocio.Validaciones;
+using TR.negocio.Clases.Productos;
+using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class ServicioController : ApiController
     {
-        private ConexionEntities con = new ConexionEntities();
-        private Validaciones validaciones = new Validaciones();
+        private readonly Val_servicio validaciones = new Val_servicio(); 
 
         [HttpGet]
-        public IEnumerable<TR_Servicio>GetServicio()
+        public IEnumerable<TR_servicio> LIstarServicio()
         {
-            var list = con.Connection.SERVICIO.Select(x=> new TR_Servicio {
-                COSTO = x.COSTO,
-                DESCRIPCION = x.DESCRIPCION,
-                NOMBRE = x.NOMBRE,
-                SERVICIO_ID = x.SERVICIO_ID
-            });
-            return list.ToList();
+            var listado = validaciones.ListarServicios();
+            return listado.ToList();
         }
 
         [HttpGet]
-        public IHttpActionResult GetServicios(int id)
+        public IHttpActionResult BuscarServicio(decimal id)
         {
-            var result = con.Connection.SERVICIO.Where(x=>x.SERVICIO_ID == id).Select(x=> new TR_Servicio {
-               SERVICIO_ID = x.SERVICIO_ID,
-               COSTO = x.COSTO,
-               DESCRIPCION = x.DESCRIPCION,
-               NOMBRE = x.NOMBRE
-            });
-
-            if (result != null)
+            var resultado = validaciones.BuscarServicio(id);
+            if (resultado != null)
             {
-                return Ok(result);
+                return Ok(resultado);
             }
-            return BadRequest("El código ingresado para eliminar un servicio no se encuentra registrado en la base de datos");
+            return BadRequest("El código ingresado no arrojó resultados");
         }
 
         [HttpPost]
-        public IHttpActionResult PostServicios(TR.dato.SERVICIO servicio)
+        public IHttpActionResult AgregarServicio(TR_servicio servicio)
         {
-            try
+            var resultado = validaciones.AgregarServicio(servicio);
+            if (resultado == "OK")
             {
-                var val1 = validaciones.ValidateEmpty(servicio.DESCRIPCION);
-                var val2 = validaciones.ValidateEmpty(servicio.NOMBRE);
-
-                if (!val1 && !val2)
-                {
-                    if (UserExists(servicio.SERVICIO_ID))
-                    {
-                        con.Connection.SERVICIO.Add(servicio);
-                        con.Connection.SaveChanges();
-                        return Ok("Servicio registrado exitosamente");
-                    }
-                    return BadRequest("El código ingresado ya se encuentra registrado");
-                }
-                return BadRequest("Todos los campos deben estar completos");
+                return Ok("Servicio registrado correctamente");
             }
-            catch (Exception)
-            {
-
-                return BadRequest("Ha ocurrido un error al momento de ingresar un nuevo servicio. Por favor, intentelo más tarde");
-            }
+            return BadRequest(resultado);
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteServicio(int id)
+        public IHttpActionResult EliminarServicio(decimal id)
         {
-            var result = con.Connection.SERVICIO.FirstOrDefault(x=>x.SERVICIO_ID == id);
-
-            if (result != null)
+            var resultado = validaciones.EliminarServicio(id);
+            if (resultado == "OK")
             {
-                con.Connection.SERVICIO.Remove(result);
-                con.Connection.SaveChanges();
                 return Ok("Servicio eliminado correctamente");
             }
-            return BadRequest("El código ingresado no se encuentra registrado en el sistema");
+            return BadRequest(resultado);
         }
 
         [HttpPut]
-        public IHttpActionResult PutUsuario(int id, TR.dato.SERVICIO servicio)
+        public IHttpActionResult ActualizarServicio(decimal id, TR_servicio servicio)
         {
-            if (!ModelState.IsValid)
+            var resultado = validaciones.ActualizarServicio(id, servicio);
+            if (resultado == "OK")
             {
-                return BadRequest("Ha ocurrido un error al momento de actualizar el servicio. Por favor, intentelo más tarde");
+                return Ok("Servicio eliminado correctamente");
             }
-            if (id != servicio.SERVICIO_ID)
-            {
-                return BadRequest("El código del servicio que desea actualizar no se encuentra registrado");
-            }
-
-            con.Connection.Entry(servicio).State = EntityState.Modified;
-
-            try
-            {
-                con.Connection.SaveChanges();
-                return Ok("Servicio actualizado correctamente");
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-
-                return BadRequest("Error al momento de actualizar el servicio");
-            }
-        }
-
-        private bool UserExists(decimal id)
-        {
-            var result = con.Connection.SERVICIO.FirstOrDefault(x => x.SERVICIO_ID == id);
-            if (result == null)
-            {
-                return true;
-            }
-            return false;
+            return BadRequest(resultado); 
         }
     }
 }

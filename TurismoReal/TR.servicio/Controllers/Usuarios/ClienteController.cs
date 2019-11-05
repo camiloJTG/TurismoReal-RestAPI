@@ -1,124 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TR.negocio.Clases;
-using TR.negocio.Conexión;
-using TR.negocio.Validaciones;
+using TR.negocio.Clases.Listado;
+using TR.negocio.Clases.Usuarios;
+using TR.negocio.Validaciones.Usuarios;
 
 namespace TR.servicio.Controllers.Usuarios
 {
     public class ClienteController : ApiController
     {
-        private ConexionEntities con = new ConexionEntities();
-        private Validaciones Validacion = new Validaciones();
+        private readonly Val_cliente validaciones = new Val_cliente();
 
         [HttpGet]
-        public IEnumerable<TR_Cliente> GetCliente()
+        public IEnumerable<TR_listadoCliente> ListarCliente()
         {
-            var list = con.Connection.CLIENTE.ToList();
-            List<TR_Cliente> ListCliente = new List<TR_Cliente>();
-
-            foreach (var i in list)
-            {
-                TR_Cliente cliente = new TR_Cliente
-                {
-                    APELLIDO_MATERNO = i.APELLIDO_MATERNO,
-                    APELLIDO_PATERNO = i.APELLIDO_PATERNO,
-                    DIRECCION = i.DIRECCION,
-                    EMAIL = i.EMAIL,
-                    NOMBRE = i.NOMBRE,
-                    TELEFONO = i.TELEFONO,
-                    FECHA_NACIMIENTO = i.FECHA_NACIMIENTO,
-                    RUN_CLIENTE = i.RUN_CLIENTE,
-                    USUARIO_NOMBRE = i.USUARIO1.USUARIO1,
-                    USUARIO_CONTRASENA = i.USUARIO1.CONTRASENA,
-                    ESTADO_DESCRIPCION = i.USUARIO1.ESTADO.DESCRIPCION,
-                    ESTADO_ENTIDAD = i.USUARIO1.ESTADO.ENTIDAD,
-                    TIPO_USUARIO_DESCRIPCION = i.USUARIO1.TIPO_USUARIO.DESCRIPCION
-                };
-                ListCliente.Add(cliente);
-            }
-            return ListCliente.ToList();
+            var resultado = validaciones.ListaCliente();
+            return resultado.ToList();
         }
 
         [HttpGet]
-        public IHttpActionResult GetCliente(string id)
+        public IHttpActionResult BuscarCliente(string id)
         {
-            try
+            var resultado = validaciones.BuscarCliente(id);
+            if (resultado != null)
             {
-                var result = con.Connection.CLIENTE.FirstOrDefault(x => x.RUN_CLIENTE == id);
+                return Ok(resultado); ;
+            }
+            return BadRequest("El run ingresado no arrojó resultados");
+        }
 
-                if (result != null)
-                {
-                    TR_Cliente cliente = new TR_Cliente
-                    {
-                        APELLIDO_MATERNO = result.APELLIDO_MATERNO,
-                        APELLIDO_PATERNO = result.APELLIDO_PATERNO,
-                        DIRECCION = result.DIRECCION,
-                        EMAIL = result.EMAIL,
-                        FECHA_NACIMIENTO = result.FECHA_NACIMIENTO,
-                        RUN_CLIENTE = result.RUN_CLIENTE,
-                        NOMBRE = result.NOMBRE,
-                        TELEFONO = result.TELEFONO,
-                        USUARIO_NOMBRE = result.USUARIO1.USUARIO1,
-                        USUARIO_CONTRASENA = result.USUARIO1.CONTRASENA,
-                        ESTADO_DESCRIPCION = result.USUARIO1.ESTADO.DESCRIPCION,
-                        ESTADO_ENTIDAD = result.USUARIO1.ESTADO.ENTIDAD,
-                        TIPO_USUARIO_DESCRIPCION = result.USUARIO1.TIPO_USUARIO.DESCRIPCION
-                    };
-                    return Ok(cliente);
-                }
-                return BadRequest("El run ingresado no se encuentra registrado dentro de la base de datos");
-            }
-            catch (Exception)
+        [HttpPost]
+        public IHttpActionResult AgregarCliente(TR_cliente cliente)
+        {
+            var resultado = validaciones.AgregarCliente(cliente);
+            if (resultado == "OK")
             {
-                return BadRequest("Se ha producido un error al momento de registrar un nuevo empelado");
+                return Ok("Cliente registrado correctamente");
             }
+            return BadRequest(resultado);
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteCliente(string id)
+        public IHttpActionResult EliminarCliente(string id)
         {
-            var result = con.Connection.CLIENTE.FirstOrDefault(x=>x.RUN_CLIENTE == id);
-
-            if (result != null)
+            var resultado = validaciones.EliminarCliente(id);
+            if (resultado == "OK")
             {
-                con.Connection.CLIENTE.Remove(result);
-                con.Connection.SaveChanges();
-                return Ok("Cliente eliminado");
+                return Ok("Cliente eliminado correctamente");
             }
-            return BadRequest("El run ingresado no se encuentra registrado dentro del sistema");
+            return BadRequest(resultado);
         }
 
         [HttpPut]
-        public IHttpActionResult PutCliente(string id, TR.dato.CLIENTE cliente)
+        public IHttpActionResult ActualizarCliente(string id, TR_cliente cliente)
         {
-            if (!ModelState.IsValid)
+            var resultado = validaciones.ActualizarCliente(id, cliente);
+            if (resultado == "OK")
             {
-                return BadRequest("Ha ocurrido un error al momento de actualizar al cliente. Por favor, intentelo más tarde");
-            }
-            if (id != cliente.RUN_CLIENTE)
-            {
-                return BadRequest("El run del cliente que desea actualizar no se encuentra registrado");
-            }
-
-            con.Connection.Entry(cliente).State = EntityState.Modified;
-
-            try
-            {
-                con.Connection.SaveChanges();
                 return Ok("Cliente actualizado correctamente");
             }
-            catch (DbUpdateConcurrencyException)
-            {
-
-                return BadRequest("Error al momento de actualizar al usuario");
-            }
+            return BadRequest(resultado);
         }
     }
 }

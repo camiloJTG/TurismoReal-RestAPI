@@ -4,106 +4,65 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TR.negocio.Clases;
-using TR.negocio.Conexión;
+using TR.negocio.Clases.Reserva;
 using TR.negocio.Validaciones;
 
 namespace TR.servicio.Controllers.Reservas
 {
     public class FacturaController : ApiController
     {
-        ConexionEntities con = new ConexionEntities();
-        Validaciones validaciones = new Validaciones();
+        private Val_factura validaciones = new Val_factura();
 
         [HttpGet]
-        public IEnumerable<TR_Factura> GetFactura()
+        public IEnumerable<TR_factura> ListarFactura()
         {
-            var list = con.Connection.FACTURA.Select(x=> new TR_Factura {
-                RESERVA_ID = x.RESERVA.RESERVA_ID,
-                RESERVA_FECHA_HORA_ACTUALIZACION = x.RESERVA.FECHA_HORA_ACTUALIZACION,
-                RESERVA_FECHA_HORA_RESERVA = x.RESERVA.FECHA_HORA_RESERVA,
-                CLIENTE_APELLIDO_MATERNO = x.CLIENTE.APELLIDO_MATERNO,
-                CLIENTE_APELLIDO_PATERNO = x.CLIENTE.APELLIDO_PATERNO,
-                CLIENTE_NOMBRE = x.CLIENTE.NOMBRE,
-                CLIENTE_RUN = x.CLIENTE.RUN_CLIENTE,
-                IVA = x.IVA,
-                NUMERO_FACTURA = x.NUMERO_FACTURA,
-                TOTAL = x.TOTAL,
-                VALOR_NETO = x.VALOR_NETO
-            });
-            return list.ToList();
+            var listado = validaciones.ListarFactura();
+            return listado.ToList();
         }
 
         [HttpGet]
-        public IHttpActionResult GetFactura(int id)
+        public IHttpActionResult BuscarFactura(decimal id)
         {
-            var result = con.Connection.FACTURA.Where(x=>x.NUMERO_FACTURA == id).Select(x=>new TR_Factura {
-                RESERVA_ID = x.RESERVA.RESERVA_ID,
-                RESERVA_FECHA_HORA_ACTUALIZACION = x.RESERVA.FECHA_HORA_ACTUALIZACION,
-                RESERVA_FECHA_HORA_RESERVA = x.RESERVA.FECHA_HORA_RESERVA,
-                CLIENTE_APELLIDO_MATERNO = x.CLIENTE.APELLIDO_MATERNO,
-                CLIENTE_APELLIDO_PATERNO = x.CLIENTE.APELLIDO_PATERNO,
-                CLIENTE_NOMBRE = x.CLIENTE.NOMBRE,
-                CLIENTE_RUN = x.CLIENTE.RUN_CLIENTE,
-                IVA = x.IVA,
-                NUMERO_FACTURA = x.NUMERO_FACTURA,
-                TOTAL = x.TOTAL,
-                VALOR_NETO = x.VALOR_NETO
-            });
-
-            if (result != null)
+            var resultado = validaciones.BuscarFactura(id);
+            if (resultado != null)
             {
-                return Ok(result);
+                return Ok(resultado);
             }
-            return BadRequest("El código de la factura ingresada no es correcta");
+            return BadRequest("El código de la factura no aarojó resultado");
         }
 
         [HttpPost]
-        public IHttpActionResult PostFactura(TR.dato.FACTURA factura)
+        public IHttpActionResult AgregarFactura(TR_factura factura)
         {
-            try
+            var resultado = validaciones.AgregarFactura(factura);
+            if (resultado == "OK")
             {
-                if (ModelState.IsValid)
-                {
-                    if (FacturaBusqueda(factura.NUMERO_FACTURA))
-                    {
-                        con.Connection.FACTURA.Add(factura);
-                        con.Connection.SaveChanges();
-                        return Ok("Factura agregada correctamente");
-                    }
-                    return BadRequest("El código ingresado ya se encuentra registrado dentro de la platafoma");
-                }
+                return Ok("Factura registrada correctamente");
             }
-            catch (Exception)
-            {
-
-                return BadRequest("Ha ocurrido un error al momento de ingresar una nueva factura. Verifique que todos los campos estén rellenos");
-            }
-            return BadRequest("Ha ocurrido un error al momento de ingresar una nueva factura");
+            return BadRequest(resultado);
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteFactura(decimal id)
+        public IHttpActionResult EliminarFactura(decimal id)
         {
-            var result = con.Connection.FACTURA.FirstOrDefault(x=>x.NUMERO_FACTURA == id);
-
-            if (result != null)
+            var resultado = validaciones.EliminarFactura(id);
+            if (resultado == "OK")
             {
-                con.Connection.FACTURA.Remove(result);
-                con.Connection.SaveChanges();
                 return Ok("Factura eliminada correctamente");
             }
-            return BadRequest("El código ingresado no existe dentro de la plataforma");
+            return BadRequest(resultado);
         }
 
-        private bool FacturaBusqueda(decimal val)
+        [HttpPut]
+        public IHttpActionResult ActualizarFactura(decimal id, TR_factura factura)
         {
-            var result = con.Connection.FACTURA.FirstOrDefault(x => x.NUMERO_FACTURA == val);
-            if (result == null)
+            var resultado = validaciones.ActualizarFactura(id, factura);
+            if (resultado == "OK")
             {
-                return true;
+                return Ok("Factura actualizada correctamente");
             }
-            return false;
+            return BadRequest(resultado);
         }
+
     }
 }

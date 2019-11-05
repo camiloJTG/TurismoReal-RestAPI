@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66D8BD97-21A4-4099-A46A-17E96E919B0E}</ProjectGuid>
+    <ProjectGuid>{68372FBD-A5E6-48F2-A59B-EE763D61478B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TR.dato</RootNamespace>
@@ -41,7 +41,7 @@
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\packages\Oracle.ManagedDataAccess.19.3.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.5.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.19.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
@@ -59,115 +59,118 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLIENTE.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="COMUNA.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DEPARTAMENTO.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DETALLE_RESERVA.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EMPLEADO.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ENTORNO.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ESTADO.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FACTURA.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IMAGEN.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="INVENTARIO.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PAQUETE_PRODUCTO.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PASAJERO.cs">
-      <DependentUpon>TurismoRealModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PROVINCIA.cs">
+    <Compile Include="TurismoReal\CLIENTE.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="REGION.cs">
+    <Compile Include="TurismoReal\COMUNA.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RESERVA.cs">
+    <Compile Include="TurismoReal\DEPARTAMENTO.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SERVICIO.cs">
+    <Compile Include="TurismoReal\DEPARTAMENTO_SERVICIO.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SUCURSAL.cs">
+    <Compile Include="TurismoReal\DETALLE_RESERVA.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TIPO_USUARIO.cs">
+    <Compile Include="TurismoReal\EMPLEADO.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TOUR.cs">
+    <Compile Include="TurismoReal\ENTORNO.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TurismoRealModel.Context.cs">
+    <Compile Include="TurismoReal\ESTADO.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\FACTURA.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\IMAGEN.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\INVENTARIO.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\PAQUETE_PRODUCTO.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\PASAJERO.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\PROVINCIA.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\REGION.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\RESERVA.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\SERVICIO.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\SUCURSAL.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\TIPO_USUARIO.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\TOUR.cs">
+      <DependentUpon>TurismoRealModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoReal\TurismoRealModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TurismoRealModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="TurismoRealModel.cs">
+    <Compile Include="TurismoReal\TurismoRealModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TurismoRealModel.Designer.cs">
+    <Compile Include="TurismoReal\TurismoRealModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TurismoRealModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="USUARIO.cs">
+    <Compile Include="TurismoReal\USUARIO.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="VALORACION.cs">
+    <Compile Include="TurismoReal\VALORACION.cs">
       <DependentUpon>TurismoRealModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="database\script 03102019.ddl" />
     <None Include="packages.config" />
-    <EntityDeploy Include="TurismoRealModel.edmx">
+    <EntityDeploy Include="TurismoReal\TurismoRealModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TurismoRealModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="TurismoRealModel.edmx.diagram">
+    <None Include="TurismoReal\TurismoRealModel.edmx.diagram">
       <DependentUpon>TurismoRealModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="database\TurismoRealCamilo.sql" />
-    <Content Include="TurismoRealModel.Context.tt">
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TurismoReal\TurismoRealModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TurismoRealModel.edmx</DependentUpon>
       <LastGenOutput>TurismoRealModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="TurismoRealModel.tt">
+    <Content Include="TurismoReal\TurismoRealModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TurismoRealModel.edmx</DependentUpon>
       <LastGenOutput>TurismoRealModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="Modelo\" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

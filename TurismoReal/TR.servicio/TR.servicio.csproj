@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{82906514-3689-4B75-B3CA-E6DBE2057D5A}</ProjectGuid>
+    <ProjectGuid>{8236B5D1-37AE-4C29-8D47-C0DBBBDF27D2}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -52,12 +52,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="JWT, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\JWT.5.3.1\lib\net46\JWT.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\packages\Oracle.ManagedDataAccess.19.3.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.5.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.19.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
@@ -171,25 +168,24 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\Previos\ComunaController.cs" />
+    <Compile Include="Controllers\Estáticos\ComunaController.cs" />
+    <Compile Include="Controllers\Estáticos\EstadoController.cs" />
+    <Compile Include="Controllers\Estáticos\ProvinciaController.cs" />
+    <Compile Include="Controllers\Estáticos\RegionController.cs" />
+    <Compile Include="Controllers\Estáticos\TipoUsuarioController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Productos\DepartamentoController.cs" />
     <Compile Include="Controllers\Productos\EntornoController.cs" />
-    <Compile Include="Controllers\Productos\ImagenController.cs" />
     <Compile Include="Controllers\Productos\InventarioController.cs" />
     <Compile Include="Controllers\Productos\ServicioController.cs" />
+    <Compile Include="Controllers\Productos\SucursalController.cs" />
     <Compile Include="Controllers\Productos\TourController.cs" />
-    <Compile Include="Controllers\Publico\AccesoController.cs" />
-    <Compile Include="Controllers\Previos\EstadoController.cs" />
-    <Compile Include="Controllers\Ejemplos\HomeController.cs" />
-    <Compile Include="Controllers\Previos\TipoUsuarioController.cs" />
-    <Compile Include="Controllers\Reservas\DetalleReservaController.cs" />
     <Compile Include="Controllers\Reservas\FacturaController.cs" />
-    <Compile Include="Controllers\Reservas\PaqueteProductoController.cs" />
     <Compile Include="Controllers\Reservas\ReservaController.cs" />
+    <Compile Include="Controllers\Usuarios\AccesoController.cs" />
     <Compile Include="Controllers\Usuarios\ClienteController.cs" />
     <Compile Include="Controllers\Usuarios\EmpleadoController.cs" />
-    <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
-    <Compile Include="Controllers\Ejemplos\ValuesController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -280,12 +276,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TR.dato\TR.dato.csproj">
-      <Project>{66D8BD97-21A4-4099-A46A-17E96E919B0E}</Project>
-      <Name>TR.dato</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TR.negocio\TR.negocio.csproj">
-      <Project>{00d3ddcb-228d-40b9-92ab-e2bf128d0158}</Project>
+      <Project>{62a3eaa9-11ed-4472-b46b-afd94007412e}</Project>
       <Name>TR.negocio</Name>
     </ProjectReference>
   </ItemGroup>
@@ -305,9 +297,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61453</DevelopmentServerPort>
+          <DevelopmentServerPort>55979</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61453/</IISUrl>
+          <IISUrl>http://localhost:55979/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00D3DDCB-228D-40B9-92AB-E2BF128D0158}</ProjectGuid>
+    <ProjectGuid>{62A3EAA9-11ED-4472-B46B-AFD94007412E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TR.negocio</RootNamespace>
@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="JWT, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JWT.5.3.1\lib\net46\JWT.dll</HintPath>
     </Reference>
@@ -47,36 +48,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\TR_Comuna.cs" />
-    <Compile Include="Clases\TR_Entorno.cs" />
-    <Compile Include="Clases\TR_Imagen.cs" />
-    <Compile Include="Clases\TR_Inventario.cs" />
-    <Compile Include="Clases\TR_Servicio.cs" />
-    <Compile Include="Clases\TR_Acceso.cs" />
-    <Compile Include="Clases\TR_Cliente.cs" />
-    <Compile Include="Clases\TR_Departamento.cs" />
-    <Compile Include="Clases\TR_Empleado.cs" />
-    <Compile Include="Clases\TR_Estado.cs" />
-    <Compile Include="Clases\TR_Factura.cs" />
-    <Compile Include="Clases\TR_PaqueteProducto.cs" />
-    <Compile Include="Clases\TR_Reserva.cs" />
-    <Compile Include="Clases\TR_TipoUsuario.cs" />
-    <Compile Include="Clases\TR_Tour.cs" />
-    <Compile Include="Clases\TR_Usuario.cs" />
-    <Compile Include="Conexión\ConexionEntities.cs" />
+    <Compile Include="Clases\Estáticos\TR_region.cs" />
+    <Compile Include="Clases\Estáticos\TR_comuna.cs" />
+    <Compile Include="Clases\Estáticos\TR_estado.cs" />
+    <Compile Include="Clases\Estáticos\TR_provincia.cs" />
+    <Compile Include="Clases\Estáticos\TR_tipoUsuario.cs" />
+    <Compile Include="Clases\Listado\TR_listadoCliente.cs" />
+    <Compile Include="Clases\Listado\TR_listadoDepartamento.cs" />
+    <Compile Include="Clases\Listado\TR_listadoEmpleado.cs" />
+    <Compile Include="Clases\Listado\TR_listadoReserva.cs" />
+    <Compile Include="Clases\Listado\TR_listadoSucursal.cs" />
+    <Compile Include="Clases\Productos\TR_departamento.cs" />
+    <Compile Include="Clases\Productos\TR_entorno.cs" />
+    <Compile Include="Clases\Productos\TR_inventario.cs" />
+    <Compile Include="Clases\Productos\TR_servicio.cs" />
+    <Compile Include="Clases\Productos\TR_sucursal.cs" />
+    <Compile Include="Clases\Productos\TR_tour.cs" />
+    <Compile Include="Clases\Reservas\TR_factura.cs" />
+    <Compile Include="Clases\Reservas\TR_pasajero.cs" />
+    <Compile Include="Clases\Reservas\TR_reserva.cs" />
+    <Compile Include="Clases\Usuarios\TR_acceso.cs" />
+    <Compile Include="Clases\Usuarios\TR_cliente.cs" />
+    <Compile Include="Clases\Usuarios\TR_empleado.cs" />
+    <Compile Include="Clases\Usuarios\TR_usuario.cs" />
+    <Compile Include="Procedimientos\Estáticos\Pro_comuna.cs" />
+    <Compile Include="Procedimientos\Estáticos\Pro_estado.cs" />
+    <Compile Include="Procedimientos\Estáticos\Pro_provincia.cs" />
+    <Compile Include="Procedimientos\Estáticos\Pro_region.cs" />
+    <Compile Include="Procedimientos\Estáticos\Pro_tipoUsuario.cs" />
+    <Compile Include="Procedimientos\Productos\Pro_departamento.cs" />
+    <Compile Include="Procedimientos\Productos\Pro_entorno.cs" />
+    <Compile Include="Procedimientos\Productos\Pro_inventario.cs" />
+    <Compile Include="Procedimientos\Productos\Pro_servicio.cs" />
+    <Compile Include="Procedimientos\Productos\Pro_sucursal.cs" />
+    <Compile Include="Procedimientos\Reservas\Pro_DatosReserva.cs" />
+    <Compile Include="Procedimientos\Reservas\Pro_factura.cs" />
+    <Compile Include="Procedimientos\Reservas\Pro_reserva.cs" />
+    <Compile Include="Procedimientos\Usuarios\Pro_acceso.cs" />
+    <Compile Include="Procedimientos\Usuarios\Pro_cliente.cs" />
+    <Compile Include="Procedimientos\Usuarios\Pro_empleado.cs" />
+    <Compile Include="Procedimientos\Productos\Pro_tour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Token\Token.cs" />
-    <Compile Include="Validaciones\Validaciones.cs" />
+    <Compile Include="Seguridad\Encriptacion.cs" />
+    <Compile Include="Seguridad\Numero.cs" />
+    <Compile Include="Seguridad\Token.cs" />
+    <Compile Include="Validaciones\Estáticos\Val_comuna.cs" />
+    <Compile Include="Validaciones\Estáticos\Val_estado.cs" />
+    <Compile Include="Validaciones\Estáticos\Val_provincia.cs" />
+    <Compile Include="Validaciones\Estáticos\Val_region.cs" />
+    <Compile Include="Validaciones\Estáticos\Val_tipoUsuario.cs" />
+    <Compile Include="Validaciones\Productos\Val_departamento.cs" />
+    <Compile Include="Validaciones\Productos\Val_entorno.cs" />
+    <Compile Include="Validaciones\Productos\Val_inventario.cs" />
+    <Compile Include="Validaciones\Productos\Val_servicio.cs" />
+    <Compile Include="Validaciones\Productos\Val_sucursal.cs" />
+    <Compile Include="Validaciones\Productos\Val_tour.cs" />
+    <Compile Include="Validaciones\Reservas\Val_reserva.cs" />
+    <Compile Include="Validaciones\Usuarios\Val_acceso.cs" />
+    <Compile Include="Validaciones\Usuarios\Val_cliente.cs" />
+    <Compile Include="Validaciones\Usuarios\Val_empleado.cs" />
+    <Compile Include="Validaciones\Reservas\Val_factura.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TR.dato\TR.dato.csproj">
-      <Project>{66d8bd97-21a4-4099-a46a-17e96e919b0e}</Project>
+      <Project>{68372fbd-a5e6-48f2-a59b-ee763d61478b}</Project>
       <Name>TR.dato</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
