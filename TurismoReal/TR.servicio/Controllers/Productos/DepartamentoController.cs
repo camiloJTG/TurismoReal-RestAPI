@@ -6,13 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Listado;
 using TR.negocio.Clases.Productos;
-using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class DepartamentoController : ApiController
     {
-        private readonly Val_departamento validaciones = new Val_departamento();
+        private readonly TR_departamento validaciones = new TR_departamento();
 
         [HttpGet]
         public IEnumerable<TR_listadoDepartamento> LIstarDepartamento()

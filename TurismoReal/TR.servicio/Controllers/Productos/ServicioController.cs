@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Productos;
-using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class ServicioController : ApiController
     {
-        private readonly Val_servicio validaciones = new Val_servicio(); 
+        private readonly TR_servicio validaciones = new TR_servicio(); 
 
         [HttpGet]
         public IEnumerable<TR_servicio> LIstarServicio()

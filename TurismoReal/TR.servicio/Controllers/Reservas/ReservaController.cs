@@ -6,13 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Listado;
 using TR.negocio.Clases.Reservas;
-using TR.negocio.Validaciones.Reservas;
 
 namespace TR.servicio.Controllers.Reservas
 {
     public class ReservaController : ApiController
     {
-        private Val_reserva validaciones = new Val_reserva();
+        private TR_reserva validaciones = new TR_reserva();
 
         [HttpGet]
         public IEnumerable<TR_listadoReserva> ListarReserva()

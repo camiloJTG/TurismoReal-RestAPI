@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Estáticos;
-using TR.negocio.Validaciones.Estáticos;
 
 namespace TR.servicio.Controllers.Estáticos
 {
     public class RegionController : ApiController
     {
-        private Val_region validaciones = new Val_region();
+        private TR_region validaciones = new TR_region();
 
         [HttpGet]
         public IEnumerable<TR_region> ListadoRegion()

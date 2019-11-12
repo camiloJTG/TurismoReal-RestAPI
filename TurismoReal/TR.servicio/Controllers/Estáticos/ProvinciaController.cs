@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases;
-using TR.negocio.Validaciones.Estáticos;
 
 namespace TR.servicio.Controllers.Estáticos
 {
     public class ProvinciaController : ApiController
     {
-        private readonly Val_provincia validaciones = new Val_provincia();
+        private readonly TR_provincia validaciones = new TR_provincia();
 
         [HttpGet]
         public IEnumerable<TR_provincia> ListadoProvincia()

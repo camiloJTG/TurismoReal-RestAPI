@@ -5,18 +5,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Usuarios;
-using TR.negocio.Validaciones.Usuarios;
 
 namespace TR.servicio.Controllers.Usuarios
 {
     public class AccesoController : ApiController
     {
-        private Val_acceso validaciones = new Val_acceso();
+        private TR_acceso validaciones = new TR_acceso();
 
-        [HttpPost]
+        [HttpGet]
         public IHttpActionResult InicioSesion(TR_acceso acceso)
         {
             var resultado = validaciones.ValidarAcceso(acceso);
+            return Ok(resultado);
+        }
+
+
+        [HttpPost]
+        public IHttpActionResult Login(TR_acceso acceso)
+        {
+            var resultado = validaciones.ValidarAcceso2(acceso);
             return Ok(resultado);
         }
     }

@@ -6,13 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Listado;
 using TR.negocio.Clases.Usuarios;
-using TR.negocio.Validaciones.Usuarios;
 
 namespace TR.servicio.Controllers.Usuarios
 {
     public class ClienteController : ApiController
     {
-        private readonly Val_cliente validaciones = new Val_cliente();
+        private readonly TR_cliente validaciones = new TR_cliente();
 
         [HttpGet]
         public IEnumerable<TR_listadoCliente> ListarCliente()

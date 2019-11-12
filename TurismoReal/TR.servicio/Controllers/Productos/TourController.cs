@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Productos;
-using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class TourController : ApiController
     {
-        private Val_tour validaciones = new Val_tour();
+        private TR_tour validaciones = new TR_tour();
 
         [HttpGet]
         public IEnumerable<TR_tour> LIstarTour()

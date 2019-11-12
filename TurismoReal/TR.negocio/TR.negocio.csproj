@@ -92,22 +92,6 @@
     <Compile Include="Seguridad\Encriptacion.cs" />
     <Compile Include="Seguridad\Numero.cs" />
     <Compile Include="Seguridad\Token.cs" />
-    <Compile Include="Validaciones\Estáticos\Val_comuna.cs" />
-    <Compile Include="Validaciones\Estáticos\Val_estado.cs" />
-    <Compile Include="Validaciones\Estáticos\Val_provincia.cs" />
-    <Compile Include="Validaciones\Estáticos\Val_region.cs" />
-    <Compile Include="Validaciones\Estáticos\Val_tipoUsuario.cs" />
-    <Compile Include="Validaciones\Productos\Val_departamento.cs" />
-    <Compile Include="Validaciones\Productos\Val_entorno.cs" />
-    <Compile Include="Validaciones\Productos\Val_inventario.cs" />
-    <Compile Include="Validaciones\Productos\Val_servicio.cs" />
-    <Compile Include="Validaciones\Productos\Val_sucursal.cs" />
-    <Compile Include="Validaciones\Productos\Val_tour.cs" />
-    <Compile Include="Validaciones\Reservas\Val_reserva.cs" />
-    <Compile Include="Validaciones\Usuarios\Val_acceso.cs" />
-    <Compile Include="Validaciones\Usuarios\Val_cliente.cs" />
-    <Compile Include="Validaciones\Usuarios\Val_empleado.cs" />
-    <Compile Include="Validaciones\Reservas\Val_factura.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

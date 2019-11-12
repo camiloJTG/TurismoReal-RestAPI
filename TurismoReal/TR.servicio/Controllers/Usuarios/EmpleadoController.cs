@@ -6,13 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Listado;
 using TR.negocio.Clases.Usuarios;
-using TR.negocio.Validaciones.Usuarios;
 
 namespace TR.servicio.Controllers.Usuarios
 {
     public class EmpleadoController : ApiController
     {
-        private Val_empleado validaciones = new Val_empleado();
+        private TR_empleado validaciones = new TR_empleado();
 
         [HttpGet]
         public IEnumerable<TR_listadoEmpleado> ListarEmpleado()

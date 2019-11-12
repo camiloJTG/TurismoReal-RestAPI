@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases;
-using TR.negocio.Validaciones;
 
 namespace TR.servicio.Controllers.Estáticos
 {
     public class TipoUsuarioController : ApiController
     {
-        private readonly Val_tipoUsuario validaciones = new Val_tipoUsuario(); 
+        private readonly TR_tipoUsuario validaciones = new TR_tipoUsuario(); 
 
         [HttpGet]
         public IEnumerable<TR_tipoUsuario> ListadoTipoUsuario()

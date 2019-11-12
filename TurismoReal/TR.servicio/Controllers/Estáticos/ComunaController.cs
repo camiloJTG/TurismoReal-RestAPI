@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases;
-using TR.negocio.Validaciones.Estáticos;
 
 namespace TR.servicio.Controllers.Estáticos
 {
     public class ComunaController : ApiController
     {
-        private Val_comuna validaciones = new Val_comuna();
+        private TR_comuna validaciones = new TR_comuna();
 
         [HttpGet]
         public IEnumerable<TR_comuna> ListadoComuna()

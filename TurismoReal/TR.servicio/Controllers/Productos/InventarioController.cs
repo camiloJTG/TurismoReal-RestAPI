@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Productos;
-using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class InventarioController : ApiController
     {
-        private Val_inventario validaciones = new Val_inventario();
+        private TR_inventario validaciones = new TR_inventario();
 
         [HttpGet]
         public IEnumerable<TR_inventario> ListarInventario()

@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases;
-using TR.negocio.Validaciones;
 
 namespace TR.servicio.Controllers.Estáticos
 {
     public class EstadoController : ApiController
     {
-        private readonly Val_estado Estado = new Val_estado();
+        private readonly TR_estado Estado = new TR_estado();
 
         [HttpGet]
         public IEnumerable<TR_estado> ListadoEstado()

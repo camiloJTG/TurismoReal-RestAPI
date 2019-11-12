@@ -6,13 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Listado;
 using TR.negocio.Clases.Productos;
-using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class SucursalController : ApiController
     {
-        private readonly Val_sucursal validaciones = new Val_sucursal();
+        private readonly TR_sucursal validaciones = new TR_sucursal();
 
         [HttpGet]
         public IEnumerable<TR_listadoSucursal> ListarSucursal()

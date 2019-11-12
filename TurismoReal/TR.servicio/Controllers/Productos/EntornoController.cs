@@ -5,13 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TR.negocio.Clases.Productos;
-using TR.negocio.Validaciones.Productos;
 
 namespace TR.servicio.Controllers.Productos
 {
     public class EntornoController : ApiController
     {
-        private readonly Val_entorno validaciones = new Val_entorno();
+        private readonly TR_entorno validaciones = new TR_entorno();
 
         [HttpGet]
         public IEnumerable<TR_entorno> LIstadoEntorno()
