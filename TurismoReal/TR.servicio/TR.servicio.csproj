@@ -168,6 +168,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Estadisticas\ArriendosRegionController.cs" />
     <Compile Include="Controllers\Estáticos\ComunaController.cs" />
     <Compile Include="Controllers\Estáticos\EstadoController.cs" />
     <Compile Include="Controllers\Estáticos\ProvinciaController.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Controllers\Usuarios\AccesoController.cs" />
     <Compile Include="Controllers\Usuarios\ClienteController.cs" />
     <Compile Include="Controllers\Usuarios\EmpleadoController.cs" />
+    <Compile Include="Controllers\Usuarios\LoginController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

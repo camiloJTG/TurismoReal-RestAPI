@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Estadísticas\TR_arriendosRegion.cs" />
     <Compile Include="Clases\Estáticos\TR_region.cs" />
     <Compile Include="Clases\Estáticos\TR_comuna.cs" />
     <Compile Include="Clases\Estáticos\TR_estado.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Clases\Usuarios\TR_cliente.cs" />
     <Compile Include="Clases\Usuarios\TR_empleado.cs" />
     <Compile Include="Clases\Usuarios\TR_usuario.cs" />
+    <Compile Include="Procedimientos\Estadísticas\Pro_estadistica.cs" />
     <Compile Include="Procedimientos\Estáticos\Pro_comuna.cs" />
     <Compile Include="Procedimientos\Estáticos\Pro_estado.cs" />
     <Compile Include="Procedimientos\Estáticos\Pro_provincia.cs" />
