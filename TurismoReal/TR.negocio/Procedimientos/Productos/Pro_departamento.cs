@@ -18,24 +18,21 @@ namespace TR.negocio.Procedimientos.Productos
 
         public List<TR_listadoDepartamento> ListarDepartamento()
         {
-            var listado = db.DEPARTAMENTO.Join(db.DEPARTAMENTO_SERVICIO, depto => depto.DEPARTAMENTO_ID, serv => serv.DEPARTAMENTO_ID, (departamento, servicio) => new { departamento, servicio }).
-                Join(db.INVENTARIO, deptoIn => deptoIn.departamento.DEPARTAMENTO_ID, inventario => inventario.INVENTARIO_ID, (deptoInventario, inventario) => new { deptoInventario.departamento, deptoInventario.servicio, inventario }).
-                Join(db.ENTORNO, deptoEntor=>deptoEntor.departamento.DEPARTAMENTO_ID, entorno=>entorno.ENTORNO_ID, (deptoEntorno,entorno)=> new {deptoEntorno.departamento, deptoEntorno.servicio, deptoEntorno.inventario, entorno }).
-                Select(x => new TR_listadoDepartamento
+            var listado = db.DEPARTAMENTO.Select(x => new TR_listadoDepartamento
                 {
-                    DEPARTAMENTO_ID = x.departamento.DEPARTAMENTO_ID,
-                    DEPARTAMENTO_VALOR = x.departamento.VALOR,
-                    DEPARTAMENTO_NOMBRE = x.departamento.NOMBRE,
-                    DEPARTAMENTO_DIRECCION = x.departamento.DIRECCION,
-                    DEPARTAMENTO_SUPERFICIE = x.departamento.SUPERFICIE,
-                    DEPARTAMENTO_CONDICIONES_USO = x.departamento.CONDICIONES_USO,
-                    DEPARTAMENTO_FECHA_CREACION = x.departamento.FECHA_CREACION,
-                    COMUNA_ID = x.departamento.COMUNA_ID,
-                    COMUNA_NOMBRE = x.departamento.COMUNA.NOMBRE_COMUNA,
-                    ESTADO_ID = x.departamento.ESTADO_ID,
-                    ESTADO_ENTIDAD = x.departamento.ESTADO.ENTIDAD,
-                    ESTADO_CODIGO = x.departamento.ESTADO.CODIGO,
-                    ESTADO_DESCRIPCION = x.departamento.ESTADO.DESCRIPCION,
+                    DEPARTAMENTO_ID = x.DEPARTAMENTO_ID,
+                    DEPARTAMENTO_VALOR = x.VALOR,
+                    DEPARTAMENTO_NOMBRE = x.NOMBRE,
+                    DEPARTAMENTO_DIRECCION = x.DIRECCION,
+                    DEPARTAMENTO_SUPERFICIE = x.SUPERFICIE,
+                    DEPARTAMENTO_CONDICIONES_USO = x.CONDICIONES_USO,
+                    DEPARTAMENTO_FECHA_CREACION = x.FECHA_CREACION,
+                    COMUNA_ID = x.COMUNA_ID,
+                    COMUNA_NOMBRE = x.COMUNA.NOMBRE_COMUNA,
+                    ESTADO_ID = x.ESTADO_ID,
+                    ESTADO_ENTIDAD = x.ESTADO.ENTIDAD,
+                    ESTADO_CODIGO = x.ESTADO.CODIGO,
+                    ESTADO_DESCRIPCION = x.ESTADO.DESCRIPCION,
                     //SERVICIO_ID = x.servicio.SERVICIO_ID,
                     //SERVICIO_NOMBRE = x.servicio.SERVICIO.NOMBRE,
                     //SERVICIO_DESCRIPCION = x.servicio.SERVICIO.DESCRIPCION,
@@ -51,24 +48,21 @@ namespace TR.negocio.Procedimientos.Productos
 
         public List<TR_listadoDepartamento> BuscarDepartamento(decimal id)
         {
-            var listado = db.DEPARTAMENTO.Where(x => x.DEPARTAMENTO_ID == id).Join(db.DEPARTAMENTO_SERVICIO, depto => depto.DEPARTAMENTO_ID, serv => serv.DEPARTAMENTO_ID, (departamento, servicio) => new { departamento, servicio }).
-                Join(db.INVENTARIO, deptoIn => deptoIn.departamento.DEPARTAMENTO_ID, inventario => inventario.INVENTARIO_ID, (deptoInventario, inventario) => new { deptoInventario.departamento, deptoInventario.servicio, inventario }).
-                Join(db.ENTORNO, deptoEntor => deptoEntor.departamento.DEPARTAMENTO_ID, entorno => entorno.ENTORNO_ID, (deptoEntorno, entorno) => new { deptoEntorno.departamento, deptoEntorno.servicio, deptoEntorno.inventario, entorno }).
-                Select(x => new TR_listadoDepartamento
+            var listado = db.DEPARTAMENTO.Where(x => x.DEPARTAMENTO_ID == id).Select(x => new TR_listadoDepartamento
                 {
-                    DEPARTAMENTO_ID = x.departamento.DEPARTAMENTO_ID,
-                    DEPARTAMENTO_VALOR = x.departamento.VALOR,
-                    DEPARTAMENTO_NOMBRE = x.departamento.NOMBRE,
-                    DEPARTAMENTO_DIRECCION = x.departamento.DIRECCION,
-                    DEPARTAMENTO_SUPERFICIE = x.departamento.SUPERFICIE,
-                    DEPARTAMENTO_CONDICIONES_USO = x.departamento.CONDICIONES_USO,
-                    DEPARTAMENTO_FECHA_CREACION = x.departamento.FECHA_CREACION,
-                    COMUNA_ID = x.departamento.COMUNA_ID,
-                    COMUNA_NOMBRE = x.departamento.COMUNA.NOMBRE_COMUNA,
-                    ESTADO_ID = x.departamento.ESTADO_ID,
-                    ESTADO_ENTIDAD = x.departamento.ESTADO.ENTIDAD,
-                    ESTADO_CODIGO = x.departamento.ESTADO.CODIGO,
-                    ESTADO_DESCRIPCION = x.departamento.ESTADO.DESCRIPCION,
+                    DEPARTAMENTO_ID = x.DEPARTAMENTO_ID,
+                    DEPARTAMENTO_VALOR = x.VALOR,
+                    DEPARTAMENTO_NOMBRE = x.NOMBRE,
+                    DEPARTAMENTO_DIRECCION = x.DIRECCION,
+                    DEPARTAMENTO_SUPERFICIE = x.SUPERFICIE,
+                    DEPARTAMENTO_CONDICIONES_USO = x.CONDICIONES_USO,
+                    DEPARTAMENTO_FECHA_CREACION = x.FECHA_CREACION,
+                    COMUNA_ID = x.COMUNA_ID,
+                    COMUNA_NOMBRE = x.COMUNA.NOMBRE_COMUNA,
+                    ESTADO_ID = x.ESTADO_ID,
+                    ESTADO_ENTIDAD = x.ESTADO.ENTIDAD,
+                    ESTADO_CODIGO = x.ESTADO.CODIGO,
+                    ESTADO_DESCRIPCION = x.ESTADO.DESCRIPCION,
                     //SERVICIO_ID = x.servicio.SERVICIO_ID,
                     //SERVICIO_NOMBRE = x.servicio.SERVICIO.NOMBRE,
                     //SERVICIO_DESCRIPCION = x.servicio.SERVICIO.DESCRIPCION,
