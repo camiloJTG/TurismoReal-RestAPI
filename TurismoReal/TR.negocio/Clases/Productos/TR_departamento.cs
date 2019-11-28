@@ -71,6 +71,7 @@ namespace TR.negocio.Clases.Productos
 
         public string EliminarDepartamento(decimal id)
         {
+
             try
             {
                 procedimiento.EliminarDepartamento(id);
@@ -78,7 +79,7 @@ namespace TR.negocio.Clases.Productos
             }
             catch (Exception)
             {
-                return "El código del departamento ingresado no arrojó resutlados";
+                return "No se ha podido eliminar el departamento. Asegurate que el departamento no esté asociado a una reserva";
             }
         }
 

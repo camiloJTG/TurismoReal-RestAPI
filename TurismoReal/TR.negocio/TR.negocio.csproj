@@ -61,6 +61,7 @@
     <Compile Include="Clases\Listado\TR_listadoSucursal.cs" />
     <Compile Include="Clases\Productos\TR_departamento.cs" />
     <Compile Include="Clases\Productos\TR_entorno.cs" />
+    <Compile Include="Clases\Productos\TR_imagen.cs" />
     <Compile Include="Clases\Productos\TR_inventario.cs" />
     <Compile Include="Clases\Productos\TR_servicio.cs" />
     <Compile Include="Clases\Productos\TR_sucursal.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Procedimientos\Estáticos\Pro_tipoUsuario.cs" />
     <Compile Include="Procedimientos\Productos\Pro_departamento.cs" />
     <Compile Include="Procedimientos\Productos\Pro_entorno.cs" />
+    <Compile Include="Procedimientos\Productos\Pro_imagen.cs" />
     <Compile Include="Procedimientos\Productos\Pro_inventario.cs" />
     <Compile Include="Procedimientos\Productos\Pro_servicio.cs" />
     <Compile Include="Procedimientos\Productos\Pro_sucursal.cs" />

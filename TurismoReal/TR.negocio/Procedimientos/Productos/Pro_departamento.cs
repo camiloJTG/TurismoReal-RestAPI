@@ -30,21 +30,21 @@ namespace TR.negocio.Procedimientos.Productos
                     DEPARTAMENTO_SUPERFICIE = x.departamento.SUPERFICIE,
                     DEPARTAMENTO_CONDICIONES_USO = x.departamento.CONDICIONES_USO,
                     DEPARTAMENTO_FECHA_CREACION = x.departamento.FECHA_CREACION,
-                    COMUNA_ID = x.departamento.COMUNA_ID,
-                    COMUNA_NOMBRE = x.departamento.COMUNA.NOMBRE_COMUNA,
-                    ESTADO_ID = x.departamento.ESTADO_ID,
-                    ESTADO_ENTIDAD = x.departamento.ESTADO.ENTIDAD,
-                    ESTADO_CODIGO = x.departamento.ESTADO.CODIGO,
-                    ESTADO_DESCRIPCION = x.departamento.ESTADO.DESCRIPCION,
-                    SERVICIO_ID = x.servicio.SERVICIO_ID,
-                    SERVICIO_NOMBRE = x.servicio.SERVICIO.NOMBRE,
-                    SERVICIO_DESCRIPCION = x.servicio.SERVICIO.DESCRIPCION,
-                    INVENTARIO_ID = x.inventario.INVENTARIO_ID,
-                    INVENTARIO_DESCRIPCION = x.inventario.DESCRIPCION,
-                    INVENTARIO_NOMBRE = x.inventario.NOMBRE,
-                    ENTORNO_ID = x.entorno.ENTORNO_ID,
-                    ENTORNO_NOMBRE = x.entorno.NOMBRE,
-                    ENTORNO_IMG = x.entorno.IMG,
+                    //COMUNA_ID = x.departamento.COMUNA_ID,
+                    //COMUNA_NOMBRE = x.departamento.COMUNA.NOMBRE_COMUNA,
+                    //ESTADO_ID = x.departamento.ESTADO_ID,
+                    //ESTADO_ENTIDAD = x.departamento.ESTADO.ENTIDAD,
+                    //ESTADO_CODIGO = x.departamento.ESTADO.CODIGO,
+                    //ESTADO_DESCRIPCION = x.departamento.ESTADO.DESCRIPCION,
+                    //SERVICIO_ID = x.servicio.SERVICIO_ID,
+                    //SERVICIO_NOMBRE = x.servicio.SERVICIO.NOMBRE,
+                    //SERVICIO_DESCRIPCION = x.servicio.SERVICIO.DESCRIPCION,
+                    //INVENTARIO_ID = x.inventario.INVENTARIO_ID,
+                    //INVENTARIO_DESCRIPCION = x.inventario.DESCRIPCION,
+                    //INVENTARIO_NOMBRE = x.inventario.NOMBRE,
+                    //ENTORNO_ID = x.entorno.ENTORNO_ID,
+                    //ENTORNO_NOMBRE = x.entorno.NOMBRE,
+                    //ENTORNO_IMG = x.entorno.IMG,
                 });
             return listado.ToList();
         }
@@ -63,21 +63,21 @@ namespace TR.negocio.Procedimientos.Productos
                     DEPARTAMENTO_SUPERFICIE = x.departamento.SUPERFICIE,
                     DEPARTAMENTO_CONDICIONES_USO = x.departamento.CONDICIONES_USO,
                     DEPARTAMENTO_FECHA_CREACION = x.departamento.FECHA_CREACION,
-                    COMUNA_ID = x.departamento.COMUNA_ID,
-                    COMUNA_NOMBRE = x.departamento.COMUNA.NOMBRE_COMUNA,
-                    ESTADO_ID = x.departamento.ESTADO_ID,
-                    ESTADO_ENTIDAD = x.departamento.ESTADO.ENTIDAD,
-                    ESTADO_CODIGO = x.departamento.ESTADO.CODIGO,
-                    ESTADO_DESCRIPCION = x.departamento.ESTADO.DESCRIPCION,
-                    SERVICIO_ID = x.servicio.SERVICIO_ID,
-                    SERVICIO_NOMBRE = x.servicio.SERVICIO.NOMBRE,
-                    SERVICIO_DESCRIPCION = x.servicio.SERVICIO.DESCRIPCION,
-                    INVENTARIO_ID = x.inventario.INVENTARIO_ID,
-                    INVENTARIO_DESCRIPCION = x.inventario.DESCRIPCION,
-                    INVENTARIO_NOMBRE = x.inventario.NOMBRE,
-                    ENTORNO_ID = x.entorno.ENTORNO_ID,
-                    ENTORNO_NOMBRE = x.entorno.NOMBRE,
-                    ENTORNO_IMG = x.entorno.IMG
+                    //COMUNA_ID = x.departamento.COMUNA_ID,
+                    //COMUNA_NOMBRE = x.departamento.COMUNA.NOMBRE_COMUNA,
+                    //ESTADO_ID = x.departamento.ESTADO_ID,
+                    //ESTADO_ENTIDAD = x.departamento.ESTADO.ENTIDAD,
+                    //ESTADO_CODIGO = x.departamento.ESTADO.CODIGO,
+                    //ESTADO_DESCRIPCION = x.departamento.ESTADO.DESCRIPCION,
+                    //SERVICIO_ID = x.servicio.SERVICIO_ID,
+                    //SERVICIO_NOMBRE = x.servicio.SERVICIO.NOMBRE,
+                    //SERVICIO_DESCRIPCION = x.servicio.SERVICIO.DESCRIPCION,
+                    //INVENTARIO_ID = x.inventario.INVENTARIO_ID,
+                    //INVENTARIO_DESCRIPCION = x.inventario.DESCRIPCION,
+                    //INVENTARIO_NOMBRE = x.inventario.NOMBRE,
+                    //ENTORNO_ID = x.entorno.ENTORNO_ID,
+                    //ENTORNO_NOMBRE = x.entorno.NOMBRE,
+                    //ENTORNO_IMG = x.entorno.IMG
                 });
             return listado.ToList();
         }
@@ -102,7 +102,10 @@ namespace TR.negocio.Procedimientos.Productos
 
         public void EliminarDepartamento(decimal id)
         {
-            var resultado = db.DEPARTAMENTO.FirstOrDefault(x=>x.DEPARTAMENTO_ID == id);
+            var resultado = db.DEPARTAMENTO.Find(id);
+            var depto_servicio = db.DEPARTAMENTO_SERVICIO.FirstOrDefault(x=>x.DEPARTAMENTO_ID == id);
+            var depto_entorno = db.DEPARTAMENTO.FirstOrDefault();
+            
             db.DEPARTAMENTO.Remove(resultado);
             db.SaveChanges();
         }
